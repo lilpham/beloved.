@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :name, presence: true
+  has_many :tasks
+  has_many :guests
+  has_many :expenses
 end

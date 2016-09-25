@@ -1,15 +1,25 @@
-<b> 
-Check List 
+
+
+<%= link_to "Check List", user_tasks_url(current_user.name) %>
+
 <br>
-Budgeter 
+
+<%= link_to "Budgeter", user_expenses_url(current_user.name) %> 
 <br>
-Guest List 
+
+<%= link_to "Guest List", user_guests_url(current_user.name) %> 
+
 <br>
-Subscription
+
+<%= link_to "Treat", user_treat_path(current_user.name) %>
+
 <br>
-Create
+
+<%= link_to "Create", user_create_path(current_user.name) %>
+
 <br>
-Settings
+
+<%= link_to "Settings", user_settings_path(current_user.name) %>
+
 <br>
-</b>
 

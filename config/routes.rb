@@ -7,9 +7,21 @@ Rails.application.routes.draw do
   get '/plan', to: 'sites#plan'
   get '/treat', to: 'sites#treat'
   get '/blog', to: 'sites#blog'
+  get '/contact', to: 'sites#contact'
 
 
-  resources :users
+  resources :users do 
+    get '/treat', to:'users#treat'
+    get '/create', to:'users#create'
+    get '/settings', to:'users#settings'
+    get '/account', to:'users#account'
+
+
+  	resources :tasks
+  	resources :expenses
+  	resources :guests 
+  end
+
 
 
 

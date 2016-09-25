@@ -1,7 +1,9 @@
 class SitesController < ApplicationController
 
 	def home
-		render :home 
+		if user_signed_in?
+			redirect_to user_path(current_user.name)
+		end
 	end
 
 	def about
@@ -19,6 +21,9 @@ class SitesController < ApplicationController
 	def blog
 		render :blog 
 	end
-
+	
+	def contact
+		render :contact
+	end
 	
 end

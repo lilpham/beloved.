@@ -1,9 +1,6 @@
 
 <% if user_signed_in? %>
 
-	<h1> Welcome, <%=current_user.name%> </h1>
-
-	<%= link_to "View Profile", user_path(current_user.id) %>
 
 <% else %>
 
