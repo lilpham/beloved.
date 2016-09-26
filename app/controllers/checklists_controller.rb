@@ -2,8 +2,11 @@ class ChecklistsController < ApplicationController
 	before_action :authenticate_user!, only: [:index]
 
 	def index
-		@checklist = current_user.checklists
+		@checklists = current_user.checklists
 		@user = current_user
+
+		@checklist = Checklist.new
+
 
 	end 
 
@@ -32,6 +35,8 @@ class ChecklistsController < ApplicationController
 		@user = current_user
 		@checklist = Checklist.find(params[:id])
 		@tasks = @checklist.tasks
+
+		@task = Task.new
 	end 
 
 	def edit

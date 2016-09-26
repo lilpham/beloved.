@@ -1,1 +1,17 @@
 <h1>Budgeter</h1>
+
+<% @expenses.each do |expense| %>
+	<%= expense.name %>
+	<%= expense.description %>
+	<%= expense.category %>
+	<%= expense.cost %>
+
+	<%= link_to "Edit", edit_user_expense_path(@user,expense) %>
+	<%= link_to "Delete", user_expense_path(@user,expense), method: :delete, data: { confirm: "Are you sure?" } %>
+
+<% end %>
+
+<br>
+<%= render 'form' %>
+
+<%= link_to "Add Expense", new_user_expense_path %>

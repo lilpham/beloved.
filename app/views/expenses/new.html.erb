@@ -1,0 +1,34 @@
+<%= form_for [@user, @expense] do |f| %>
+ 	
+ 	<div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+ 	</div>
+
+	<div>
+    <%= f.label :description, "Notes"%>
+    <%= f.text_field :description %>
+	</div> 
+
+	<div>
+    <%= f.label :category %>
+    <%= f.select :category,[
+    	['Ceremony'],['Reception'],['Photography'],['Videography'],['Floral'],['Dress'],['Misc']
+    	] %>
+	</div> 
+	
+	<div>
+    <%= f.label :payer %>
+    <%= f.text_field :payer %>
+	</div>
+
+	<div>
+    <%= f.label :cost %>
+    <%= f.number_field :cost %>
+	</div> 
+
+    <%= f.submit %>
+
+<% end %>
+
+<%= link_to "Cancel", user_expenses_path %>
