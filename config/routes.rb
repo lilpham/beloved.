@@ -16,10 +16,13 @@ Rails.application.routes.draw do
     get '/settings', to:'users#settings'
     get '/account', to:'users#account'
 
+    resources :expenses
+    resources :guests 
 
-  	resources :tasks
-  	resources :expenses
-  	resources :guests 
+    resources :checklists do 
+  	 resources :tasks
+    end
+
   end
 
 

@@ -1,0 +1,9 @@
+<h1>Checklists</h1>
+
+<% @checklist.each do |checklist| %>
+	<ul>
+	<%= link_to "#{checklist.title}", user_checklist_path(@user.id, checklist.id) %>
+	</ul>
+<% end %>
+<br>
+<%= link_to "Create New Checklist", new_user_checklist_path %>

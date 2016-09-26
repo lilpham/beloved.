@@ -1,0 +1,11 @@
+<h2><%= @checklist.title %></h2>
+
+<p><%= @checklist.description %></p>
+
+<%= link_to 'Edit', edit_user_checklist_path(@checklist) %> 
+<br>
+<%= link_to 'Delete', user_checklist_path(@checklist), method: :delete, data: { confirm: "Are you sure?" }
+ %>
+<br>
+
+<%= link_to "Go Back", user_checklists_path %>

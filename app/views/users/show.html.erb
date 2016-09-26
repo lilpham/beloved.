@@ -1,13 +1,20 @@
+<h1> Welcome, <%= current_user.name %> ! </h1>
 
+<!--Upload avatar photo-->
+<p> Upload a photo</p>
 
-<%= link_to "Check List", user_tasks_url(current_user.name) %>
+ 
+ <!--Avatar-->
+
+<!--navbar-->
+<%= link_to "Check List", user_checklists_path(current_user.name) %>
 
 <br>
 
-<%= link_to "Budgeter", user_expenses_url(current_user.name) %> 
+<%= link_to "Budgeter", user_expenses_path(current_user.name) %> 
 <br>
 
-<%= link_to "Guest List", user_guests_url(current_user.name) %> 
+<%= link_to "Guest List", user_guests_path(current_user.name) %> 
 
 <br>
 

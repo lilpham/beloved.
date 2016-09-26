@@ -1,0 +1,4 @@
+<%= form_for ([@checklist, @checklist.tasks.build]) do |f| %>
+	<%= f.text_field :name, placeholder:"Call florists" %>
+	<%= f.submit %>
+<% end %>
