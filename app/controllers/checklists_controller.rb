@@ -4,6 +4,7 @@ class ChecklistsController < ApplicationController
 	def index
 		@checklist = current_user.checklists
 		@user = current_user
+
 	end 
 
 
@@ -30,6 +31,7 @@ class ChecklistsController < ApplicationController
 	def show
 		@user = current_user
 		@checklist = Checklist.find(params[:id])
+		@tasks = @checklist.tasks
 	end 
 
 	def edit
@@ -43,7 +45,7 @@ class ChecklistsController < ApplicationController
 		@checklist.user_id = @user.id
 
 		if @checklist.update(checklist_params)
-			flash[:notice] = "checklist successfully created!"
+			flash[:notice] = "checklist successfully updated!"
 			redirect_to user_checklists_path
 		else
 			flash[:alert] = "Please fill text fields with characters"
@@ -57,6 +59,8 @@ class ChecklistsController < ApplicationController
 		checklist = Checklist.find(params[:id])
 		if checklist.destroy
 			flash[:notice] = "checklist deleted"
+			redirect_to user_checklists_path
+
 		end
 	end
 

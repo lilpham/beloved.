@@ -6,8 +6,8 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
+  validates :name, :fiance_name, :wedding_date, presence: true
 
-  validates :name, presence: true
   has_many :checklists
   has_many :tasks
   has_many :guests

@@ -2,6 +2,21 @@
 
 <p><%= @checklist.description %></p>
 
+<% @tasks.each do |task| %>
+	<li>
+		<%= task.name %>
+		<%= task.deadline %>
+		<%= link_to 'Edit Task', edit_user_checklist_task_path(@user, @checklist, task) %>
+		<%= link_to 'Delete Task', user_checklist_task_path(@user,@checklist,task), method: :delete, data: { confirm: "Are you sure?" } %>
+	</li>
+<% end %>
+
+
+
+
+<%= link_to 'Create Task', new_user_checklist_task_path(@user.id, @checklist.id) %> 
+<br>
+
 <%= link_to 'Edit', edit_user_checklist_path(@checklist) %> 
 <br>
 <%= link_to 'Delete', user_checklist_path(@checklist), method: :delete, data: { confirm: "Are you sure?" }
