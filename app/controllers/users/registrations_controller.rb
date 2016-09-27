@@ -11,9 +11,24 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    # creation code 
+    if user_signed_in?
+      WelcomeMailer.welcome_email(current_user).deliver_now
+    #   def create_default_checklist
+
+    #   end
+    end
+    puts ""
+    puts ""
+
 
   end
+
+  private
+  def user_params
+    params.require(:user).permit(
+    :name, :fiance_name, :wedding_date, :password
+    )
+  end 
 
   # GET /resource/edit
   # def edit

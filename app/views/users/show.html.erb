@@ -1,10 +1,19 @@
 <h1> Welcome, <%= current_user.name %> ! </h1>
+<h2>Only  <%= current_user.wedding_date %> days to go!</h2>
+
 
 <!--Upload avatar photo-->
-<p> Upload a photo</p>
+<p> Upload photos of you and your fiancé/fiancée!</p>
 
- 
- <!--Avatar-->
+<h1>IMG 1 - IMG 2 - IMG 3 - IMG 4</h1>
+
+<!-- Calendar -->
+<h1>-- CALENDAR w/dates --</h1>
+
+<!-- TREAT -->
+<h1>-- TREAT -- </h1>
+<button>Treat yo'self</button>
+
 
 <!--navbar-->
 <%= link_to "Check List", user_checklists_path(current_user.name) %>
@@ -28,5 +37,8 @@
 
 <%= link_to "Settings", user_settings_path(current_user.name) %>
 
-<br>
+
+
+
+
 

@@ -3,6 +3,8 @@ gem 'rails_12factor', group: :production
 gem 'devise'
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
+gem 'icalendar', '~> 2.4', '>= 2.4.1'
+gem 'figaro'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
