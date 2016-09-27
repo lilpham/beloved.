@@ -1,3 +1,9 @@
 <h1>Account:</h1>
 
+<%= @user.name %>
+<%= @user.fiance_name %>
+<%= @user.email %>
+<%= @user.wedding_date %>
+
+<br>
 <%= link_to "Edit Account Information", edit_user_registration_path(current_user.name) %>

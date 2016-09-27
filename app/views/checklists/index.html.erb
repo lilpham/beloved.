@@ -2,13 +2,17 @@
 
 <% @checklists.each do |checklist| %>
 	<ul>
-	<%= link_to "#{checklist.title}", user_checklist_path(@user.id, checklist.id) %>
+	<%= link_to "#{checklist.title}", user_checklist_path(@user, checklist.id) %>
+
+	<%= link_to 'Edit', edit_user_checklist_path(@user, checklist) %> 
+
+	<%= link_to 'Delete', user_checklist_path(@user, checklist), method: :delete, data: { confirm: "Are you sure?" } %>
 	</ul>
 
 <% end %>
 <br>
 
 
-<%= render 'form' %>
+<%= render 'checklistform' %>
 <br>
 <%= link_to "Create New Checklist", new_user_checklist_path %>

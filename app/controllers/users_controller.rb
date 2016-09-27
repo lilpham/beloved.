@@ -10,8 +10,8 @@ class UsersController < ApplicationController
 		render :treat
 	end 
 
-	def create
-		render :create
+	def c
+		render :c
 	end 
 
 	def settings
@@ -19,7 +19,8 @@ class UsersController < ApplicationController
 	end 
 
 	def account
-		render :account
+		@user = current_user
+		
 	end
 
 

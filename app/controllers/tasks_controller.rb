@@ -39,7 +39,7 @@ class TasksController < ApplicationController
 
 		if @task.update(task_params)
 			flash[:notice] = "task successfully updated!"
-			redirect_to user_checklists_path
+			redirect_to user_checklist_path(@user, @checklist)
 		else
 			flash[:alert] = "Please fill text fields with characters"
 			render :edit
@@ -47,13 +47,13 @@ class TasksController < ApplicationController
 	end
 
 	def destroy
-		user = current_user
-		checklist = Checklist.find(params[:checklist_id])
+		@user = current_user
+		@checklist = Checklist.find(params[:checklist_id])
 		task = Task.find(params[:id])
 
 		if task.destroy
 			flash[:notice] = "task deleted"
-			redirect_to user_checklists_path(checklist)
+			redirect_to user_checklist_path(@user, @checklist)
 		end
 	end
 

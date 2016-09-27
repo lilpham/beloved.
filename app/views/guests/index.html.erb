@@ -1,1 +1,16 @@
 <h1>Guest List</h1>
+
+<% @guests.each do |guest| %>
+
+	<%= guest.first_name %>
+	<%= guest.last_name %>
+	<%= guest.phone_number %>
+	<%= guest.address %>
+
+	<%= link_to "Edit", edit_user_guest_path(@user, guest) %>
+
+	<%= link_to "Delete", user_guest_path(@user, guest), method: :delete, data: { confirm: "Are you sure?" } %>
+
+<% end %> 
+
+<%= render 'guestform' %>

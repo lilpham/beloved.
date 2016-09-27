@@ -12,8 +12,9 @@ Rails.application.routes.draw do
 
 
   resources :users do 
+ 
     get '/treat', to:'users#treat'
-    get '/create', to:'users#create'
+    get '/create', to:'users#c'
     get '/settings', to:'users#settings'
     get '/account', to:'users#account'
 

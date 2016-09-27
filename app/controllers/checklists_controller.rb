@@ -10,7 +10,6 @@ class ChecklistsController < ApplicationController
 
 	end 
 
-
 	def new
 		@user = current_user
 		@checklist = Checklist.new
@@ -71,6 +70,8 @@ class ChecklistsController < ApplicationController
 
 	private
 	def checklist_params
-		params.require(:checklist).permit(:title, :description, :user_id)
+		params.require(:checklist).permit(
+		:title, :description, :user_id
+		)
 	end
 end
