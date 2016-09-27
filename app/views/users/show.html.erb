@@ -1,5 +1,5 @@
-<h1> Welcome, <%= current_user.name %> ! </h1>
-<h2>Only  <%= current_user.wedding_date %> days to go!</h2>
+<h1> Welcome, <%= current_user.name %>! </h1>
+<h2>Only <%= @count %> days to go!</h2>
 
 
 <!--Upload avatar photo-->
@@ -16,6 +16,7 @@
 
 
 <!--navbar-->
+
 <%= link_to "Check List", user_checklists_path(current_user.name) %>
 
 <br>
