@@ -13,10 +13,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
     if user_signed_in?
       WelcomeMailer.welcome_email(current_user).deliver_now
-    #   def create_default_checklist
+      puts "hello"
+      puts "#{ ( current_user.wedding_date - 12.months).strftime("%B") }"
 
-    #   end
+
+      checklist1 = Checklist.create!(
+        title: "#{(current_user.wedding_date - 12.months).strftime("%B")}",
+        description: "Your big to-do's for this month! Let's get started!",
+        user_id: current_user.id
+        )
+      
+
+      checklist1.tasks.create!(
+        name:"Book reception venue", 
+        deadline: current_user.wedding_date - 12.months
+        )
+      
     end
+
+
 
 
   end

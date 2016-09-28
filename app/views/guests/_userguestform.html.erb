@@ -1,0 +1,28 @@
+<h1><%= @user.name%> and <%= @user.fiance_name %> are gettin' hitched and need your info! Just fill out the form below with tender loving care :) </h1>
+
+<%= form_for [@user, @guest] do |f| %> 
+	<div>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+ 	</div>
+
+	<div>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+ 	</div>
+
+	<div>
+    <%= f.label :phone_number %>
+    <%= f.text_field :phone_number %>
+ 	</div>
+
+	<div>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+	</div>
+
+    <%= f.submit %>
+
+<% end %>
+
+<p>Your information won't be shared with anyone but <%= @user.name %> and <%=@user.fiance_name%>.</p>

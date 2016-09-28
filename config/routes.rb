@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   get '/blog', to: 'sites#blog'
   get '/contact', to: 'sites#contact'
 
-
+  get '/:user_id/hellofriend', to: 'guests#guest_input_form', as: "user_hellofriend"
+  get '/:user_id/thankyou', to: 'guests#thankyou', as: "user_thankyou"
   resources :users do 
  
     get '/treat', to:'users#treat'
