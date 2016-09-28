@@ -13,9 +13,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
     if user_signed_in?
       WelcomeMailer.welcome_email(current_user).deliver_now
-      puts "hello"
-      puts "#{ ( current_user.wedding_date - 12.months).strftime("%B") }"
-
 
       checklist1 = Checklist.create!(
         title: "#{(current_user.wedding_date - 12.months).strftime("%B")}",
@@ -23,12 +20,101 @@ class Users::RegistrationsController < Devise::RegistrationsController
         user_id: current_user.id
         )
       
+      checklist1.tasks.create!([
+        {name:"Book reception venue", deadline: current_user.wedding_date - 12.months},
+        {name:"Book ceremony venue", deadline: current_user.wedding_date - 12.months},
+        {name:"Book officiant", deadline: current_user.wedding_date - 12.months},
+        ])
 
-      checklist1.tasks.create!(
-        name:"Book reception venue", 
-        deadline: current_user.wedding_date - 12.months
+
+      checklist2 = Checklist.create!(
+        title: "#{(current_user.wedding_date - 10.months).strftime("%B")}",
+        description: "Your big to-do's for this month! Let's get started!",
+        user_id: current_user.id
         )
       
+      checklist2.tasks.create!([
+        {name:"Block out hotel rooms for guests", deadline: current_user.wedding_date - 10.months},
+        {name:"Choose wedding party! aka: your baes", deadline: current_user.wedding_date - 10.months},
+        {name:"Book photographer", deadline: current_user.wedding_date - 10.months},
+        {name:"Book videographer", deadline: current_user.wedding_date - 10.months},
+        {name:"Book caterer", deadline: current_user.wedding_date - 10.months},
+        ])
+
+      checklist3 = Checklist.create!(
+        title: "#{(current_user.wedding_date - 8.months).strftime("%B")}",
+        description: "You've got a lot this month, but you'll thank us later if you nail them down!",
+        user_id: current_user.id
+        )
+      
+      checklist3.tasks.create!([
+        {name:"Register for registry - woohoo! Gifts!", deadline: current_user.wedding_date - 8.months},
+        {name:"Go wedding dress shopping!", deadline: current_user.wedding_date - 8.months},
+        {name:"Look for Bridesmaids dresses(or let your bridesmaids pick their own!)", deadline: current_user.wedding_date - 8.months},
+        {name:"Book florist", deadline: current_user.wedding_date - 8.months},
+        {name:"Book band/dj for reception", deadline: current_user.wedding_date - 8.months},
+        ])
+
+      checklist4 = Checklist.create!(
+        title: "#{(current_user.wedding_date - 6.months).strftime("%B")}",
+        description: "You've got a lot this month, but you'll thank us later if you nail them down!",
+        user_id: current_user.id
+        )
+      
+      checklist4.tasks.create!([
+        {name:"Book your baker - cake time!", deadline: current_user.wedding_date - 6.months},
+        {name:"Send 'Save the Dates'", deadline: current_user.wedding_date - 6.months},
+        {name:"Book ceremony musicians or ask a friend to play for your ceremony!", deadline: current_user.wedding_date - 6.months},
+        ])
+
+      checklist5 = Checklist.create!(
+        title: "#{(current_user.wedding_date - 4.months).strftime("%B")}",
+        description: "You've got a lot this month, but you'll thank us later if you nail them down!",
+        user_id: current_user.id
+        )
+      
+      checklist5.tasks.create!([
+        {name:"Book rehearsal dinner venue", deadline: current_user.wedding_date - 4.months},
+        {name:"Book honeymoon (hello, paradise)", deadline: current_user.wedding_date - 4.months},
+        {name:"Rent/Purchase menswear attire", deadline: current_user.wedding_date - 4.months},
+        {name:"Order wedding bands", deadline: current_user.wedding_date - 4.months},
+        ])
+
+      checklist6 = Checklist.create!(
+        title: "#{(current_user.wedding_date - 2.months).strftime("%B")}",
+        description: "You've got a lot this month, but you'll thank us later if you nail them down!",
+        user_id: current_user.id
+        )
+      
+      checklist6.tasks.create!([
+        {name:"Schedule make-up trial OR practice your make-up (if you're doing your own)", deadline: current_user.wedding_date - 2.months},
+        {name:"Schedule hair trial OR practice your hair (if you're doing your own)", deadline: current_user.wedding_date - 2.months},
+        {name:"Send formal invites (it's go time!)", deadline: current_user.wedding_date - 2.months},
+        ])
+
+      checklist7 = Checklist.create!(
+        title: "#{(current_user.wedding_date - 1.months).strftime("%B")}",
+        description: "You're almost there! We can't wait!",
+        user_id: current_user.id
+        )
+      
+      checklist7.tasks.create!([
+        {name:"Finalize ceremony program", deadline: current_user.wedding_date - 1.months},
+        {name:"Apply for marriage license", deadline: current_user.wedding_date - 1.months},
+        ])
+
+      checklist8 = Checklist.create!(
+        title: "#{(current_user.wedding_date + 1.month).strftime("%B")}",
+        description: "You're almost there! We can't wait!",
+        user_id: current_user.id
+        )
+      
+      checklist8.tasks.create!([
+        {name:"Send thank you cards", deadline: current_user.wedding_date + 1.month},
+        {name:"Change your name", deadline: current_user.wedding_date + 1.month},
+        ])
+     
+
     end
 
 
