@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160926221318) do
+ActiveRecord::Schema.define(version: 20160928234135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,13 +39,27 @@ ActiveRecord::Schema.define(version: 20160926221318) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "phone_number"
-    t.string   "address"
     t.text     "notes"
     t.boolean  "plus_one"
     t.string   "party_name"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "user_id"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "user_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -57,7 +71,6 @@ ActiveRecord::Schema.define(version: 20160926221318) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "checklist_id"
-    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -74,7 +87,6 @@ ActiveRecord::Schema.define(version: 20160926221318) do
     t.string   "name"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
-    t.string   "avatar"
     t.string   "fiance_name"
     t.date     "wedding_date"
     t.boolean  "email_confirmed",        default: false

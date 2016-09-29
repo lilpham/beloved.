@@ -1,0 +1,18 @@
+<!--user's navbar-->
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+	<b><%=link_to "beloved.", root_path %></b>
+
+	<%= link_to "Checklist", user_checklists_path(current_user.name) %>
+	<%= link_to "Budgeter", user_expenses_path(current_user.name) %> 
+	<%= link_to "Guest List", user_guests_path(current_user.name) %> 
+	<%= link_to "Treat", user_treat_path(current_user.name) %>
+	<%= link_to "Create", user_create_path(current_user.name) %>
+	<%= link_to "Settings", user_settings_path(current_user.name) %>
+
+	<img src="/images/hamburgermenu.png" width="50px">
+
+  </div>
+</nav>

@@ -14,6 +14,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if user_signed_in?
       WelcomeMailer.welcome_email(current_user).deliver_now
 
+      thisweek_checklist = Checklist.create!(
+        title: "This Week",
+        description: "Goals to finish by Sunday!",
+        user_id: current_user.id
+        )
+
       checklist1 = Checklist.create!(
         title: "#{(current_user.wedding_date - 12.months).strftime("%B")}",
         description: "Your big to-do's for this month! Let's get started!",

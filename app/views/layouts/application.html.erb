@@ -5,6 +5,8 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   
@@ -22,13 +24,32 @@
 </script>
 
   <body>
-  <header><h1><b><%=link_to "beloved.", root_path %></b></h1></header>
+
+
+    <header>
+      <!-- navbar -->
+      <% if user_signed_in? %>
+          <%= render '/layouts/userNavbar' %>
+      <% else %>
+          <%= render '/layouts/siteNavbar' %>
+      <% end %>
+    </header>
+    
+
+    <!-- flash messages -->
+    <%= render '/layouts/flash' %>
+    
     <%= yield %>
 
+  
     <hr>
-
     <% if user_signed_in? %>
   		<%= link_to "Logout", destroy_user_session_path, method: "delete" %>
   	<% end %>
+
+
+
+
+
   </body>
 </html>

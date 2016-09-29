@@ -1,7 +1,28 @@
 <h1>Budgeter</h1>
 
+<div>
+	<form>
+		<b>
+		<input class ="js-budget" input type="number" placeholder="Set your budget">
+		<button class="js-add-budget">Set</button>
+	</form>
+</div>
+
+<h4>Total Cost:</h4> 
+<%= @grand_total %>
+
+
+<h4>Budget Left:</h4>
+<div>
+	<form>
+		<b>
+		<input class ="js-budget-left">
+	</form>
+</div>
+
+<h4>Ceremony</h4>
 <% @expenses.each do |expense| %>
-	<%= expense.category %>
+	<% if expense.category == "Ceremony" %>
 	<%= expense.name %>
 	<%= expense.description %>
 	<%= expense.payer %>
@@ -10,8 +31,142 @@
 	<%= link_to "Edit", edit_user_expense_path(@user,expense) %>
 	<%= link_to "Delete", user_expense_path(@user,expense), method: :delete, data: { confirm: "Are you sure?" } %>
 	<br>
+	<% end %>
 <% end %>
 
+<%= @ceremony_total %>
+
+
+
+<h4>Reception</h4>
+<% @expenses.each do |expense| %>
+	<% if expense.category == "Reception" %>
+	<%= expense.name %>
+	<%= expense.description %>
+	<%= expense.payer %>
+	<%= expense.cost %>
+
+	<%= link_to "Edit", edit_user_expense_path(@user,expense) %>
+	<%= link_to "Delete", user_expense_path(@user,expense), method: :delete, data: { confirm: "Are you sure?" } %>
+	<br>
+	<% end %>
+<% end %>
+
+<%= @reception_total %>
+
+<h4>Photography</h4>
+<% @expenses.each do |expense| %>
+	<% if expense.category == "Photography" %>
+	<%= expense.name %>
+	<%= expense.description %>
+	<%= expense.payer %>
+	<%= expense.cost %>
+
+	<%= link_to "Edit", edit_user_expense_path(@user,expense) %>
+	<%= link_to "Delete", user_expense_path(@user,expense), method: :delete, data: { confirm: "Are you sure?" } %>
+	<br>
+	<% end %>
+<% end %>
+
+<%= @photography_total %>
+
+<h4>Videography</h4>
+<% @expenses.each do |expense| %>
+	<% if expense.category == "Videography" %>
+	<%= expense.name %>
+	<%= expense.description %>
+	<%= expense.payer %>
+	<%= expense.cost %>
+
+	<%= link_to "Edit", edit_user_expense_path(@user,expense) %>
+	<%= link_to "Delete", user_expense_path(@user,expense), method: :delete, data: { confirm: "Are you sure?" } %>
+	<br>
+	<% end %>
+<% end %>
+
+<%= @videography_total %>
+
+<h4>Music</h4>
+<% @expenses.each do |expense| %>
+	<% if expense.category == "Music" %>
+	<%= expense.name %>
+	<%= expense.description %>
+	<%= expense.payer %>
+	<%= expense.cost %>
+
+	<%= link_to "Edit", edit_user_expense_path(@user,expense) %>
+	<%= link_to "Delete", user_expense_path(@user,expense), method: :delete, data: { confirm: "Are you sure?" } %>
+	<br>
+	<% end %>
+<% end %>
+
+<%= @music_total %>
+
+<h4>Catering</h4>
+<% @expenses.each do |expense| %>
+	<% if expense.category == "Catering" %>
+	<%= expense.name %>
+	<%= expense.description %>
+	<%= expense.payer %>
+	<%= expense.cost %>
+
+	<%= link_to "Edit", edit_user_expense_path(@user,expense) %>
+	<%= link_to "Delete", user_expense_path(@user,expense), method: :delete, data: { confirm: "Are you sure?" } %>
+	<br>
+	<% end %>
+<% end %>
+
+<%= @catering_total %>
+
+<h4>Floral</h4>
+<% @expenses.each do |expense| %>
+	<% if expense.category == "Floral" %>
+	<%= expense.name %>
+	<%= expense.description %>
+	<%= expense.payer %>
+	<%= expense.cost %>
+
+	<%= link_to "Edit", edit_user_expense_path(@user,expense) %>
+	<%= link_to "Delete", user_expense_path(@user,expense), method: :delete, data: { confirm: "Are you sure?" } %>
+	<br>
+	<% end %>
+<% end %>
+
+<%= @floral_total %>
+
+<h4>Dress</h4>
+<% @expenses.each do |expense| %>
+	<% if expense.category == "Dress" %>
+	<%= expense.name %>
+	<%= expense.description %>
+	<%= expense.payer %>
+	<%= expense.cost %>
+
+	<%= link_to "Edit", edit_user_expense_path(@user,expense) %>
+	<%= link_to "Delete", user_expense_path(@user,expense), method: :delete, data: { confirm: "Are you sure?" } %>
+	<br>
+	<% end %>
+<% end %>
+
+<%= @dress_total %>
+
+<h4>Misc</h4>
+<% @expenses.each do |expense| %>
+	<% if expense.category == "Misc" %>
+	<%= expense.name %>
+	<%= expense.description %>
+	<%= expense.payer %>
+	<%= expense.cost %>
+
+	<%= link_to "Edit", edit_user_expense_path(@user,expense) %>
+	<%= link_to "Delete", user_expense_path(@user,expense), method: :delete, data: { confirm: "Are you sure?" } %>
+	<br>
+	<% end %>
+<% end %>
+
+<%= @misc_total %>
+
+<br>
 <br>
 <%= render 'expenseform' %>
 

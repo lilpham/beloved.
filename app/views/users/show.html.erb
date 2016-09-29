@@ -1,42 +1,28 @@
 <h1> Welcome, <%= current_user.name %>! </h1>
-<h2>Only <%= @count %> days to go!</h2>
+<h2>Only <%= @count %> days until you and <%=current_user.fiance_name%> tie the knot!</h2>
 
 
-<!--Upload avatar photo-->
+<!--Upload photos -->
 <p> Upload photos of you and your fiancé/fiancée or inspirational photos</p>
+<%= render 'form' %>
 
-<h1>IMG 1 - IMG 2 - IMG 3 - IMG 4</h1>
+
+<% @images.each do |img| %>
+	<%= image_tag img.image.url(:large) %>
+<% end %>
+
 
 <!-- Calendar -->
-<h1>-- CALENDAR w/dates --</h1>
+<p> CALENDAR w/dates</p>
+
+
+<!-- Checklist Snapshot (current month, current week)--> 
 
 <!-- TREAT -->
-<h1>-- TREAT -- </h1>
+<p> TREAT </p>
 <button>Treat yo'self</button>
 
-
-<!--navbar-->
-
-<%= link_to "Check List", user_checklists_path(current_user.name) %>
-
-<br>
-
-<%= link_to "Budgeter", user_expenses_path(current_user.name) %> 
-<br>
-
-<%= link_to "Guest List", user_guests_path(current_user.name) %> 
-
-<br>
-
-<%= link_to "Treat", user_treat_path(current_user.name) %>
-
-<br>
-
-<%= link_to "Create", user_create_path(current_user.name) %>
-
-<br>
-
-<%= link_to "Settings", user_settings_path(current_user.name) %>
+<!-- Jams -->
 
 
 

@@ -1,10 +1,33 @@
 class ExpensesController < ApplicationController
+	require 'expense.rb'
 	before_action :authenticate_user!, only: [:index, :show]
 
 	def index
 		@user = current_user
-		@expenses = current_user.expenses
+		@expenses = @user.expenses
+
+		# calculate total of each category 
+		@ceremony_total = @user.total("Ceremony")
+		
+		@reception_total = @user.total("Reception")
+		@photography_total = @user.total("Photography")
+		@videography_total = @user.total("Videography")
+		@music_total = @user.total("Music")
+		@catering_total = @user.total("Catering")
+		@flora_total = @user.total("Floral")
+		@dress_total = @user.total("Dress")
+		@decor_total = @user.total("Decor")
+		@misc_total = @user.total("Misc")
+
+		# calculate grand total
+		@grand_total = @user.grand_total
+
+		# create new expense form
 		@expense = Expense.new
+
+		# set budget 
+		
+
 
 	end 
 

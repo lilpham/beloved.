@@ -13,3 +13,103 @@
  *= require_tree .
  *= require_self
  */
+
+@import url("//fonts.googleapis.com/css?family=Oswald|Montserrat");
+
+$height: 800;
+$text-color: #FFEC42;
+$background-color: #328BCE;
+
+html { height: 100%; }
+
+body {
+	background-image: radial-gradient(
+		circle,
+		lighten($background-color, 20%),
+		lighten($background-color, 5%)
+	);
+}
+
+h1 {
+	margin-top: 35px;
+	color: #fff;
+	font-family: Montserrat;
+	text-transform: uppercase;
+
+}
+
+.image-preview, .image-preview-wrap {
+	position: center;
+	margin: 0 auto;
+}
+
+.lightbox {
+	display: none; 
+	position: fixed; 
+	z-index: 99;
+}
+
+.image-preview {
+	background-image: url("/images/snapchat_filter.png");
+	background-position: center;
+	padding: 100px;
+	margin: 1000px;
+	
+}
+
+.image-preview, .image-preview-wrap {
+	margin: 0 auto;
+	width: (0.75 * $height) + px;
+	height: $height + px;
+}
+
+background-position: center;
+	overflow: hidden;
+	padding: (0.05 * $height) + px;
+
+
+.image-message {
+	font-family: Oswald;
+	font-weight: 700;
+	color: $text-color;
+	text-transform: uppercase;
+	text-align: center;
+  position: relative;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+	letter-spacing: (0.0075 * $height) + px;
+	line-height: (0.1 * $height) + px;
+	font-size: (0.1 * $height) + px;
+	word-wrap: break-word;
+}
+
+
+.lightbox {
+	display: none;
+	position: fixed;
+	top: 0;
+	z-index: 500;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(#1c1c1c, 0.7);
+}
+
+.close-lightbox {
+	color: #fff;
+	text-decoration: none;
+	font-size: 50px;
+	position: fixed;
+	top: 20px;
+	right: 25px;
+}
+
+.image {
+	display: none;
+	position: fixed;
+	top: 25px;
+	right: 70px;
+	margin: 0 auto;
+	z-index: 1000;
+}

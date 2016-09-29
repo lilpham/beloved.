@@ -4,6 +4,7 @@ class TasksController < ApplicationController
 	def new
 		@user = current_user
 		@checklist = Checklist.find(params[:checklist_id])
+
 		@task = Task.new
 	end	
 	

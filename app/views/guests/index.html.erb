@@ -5,7 +5,11 @@
 	<%= guest.first_name %>
 	<%= guest.last_name %>
 	<%= guest.phone_number %>
-	<%= guest.address %>
+	<%= guest.address_1 %>
+  <%= guest.address_2 %>
+  <%= guest.city %>
+  <%= guest.state %>
+  <%= guest.zipcode %>
 
 	<%= link_to "Edit", edit_user_guest_path(@user, guest) %>
 
@@ -15,6 +19,20 @@
 
 <%= render 'guestform' %>
 
-<h4>Stop workin' so hard! Send your guests a form to fill out</h4>
+<h4>Stop workin' so hard! Click below to copy the link to your own form. <br>You can copy it then send it to your guests! That's it!</h4>
 
-<button><%= link_to "Copy Link", user_hellofriend_path(current_user) %></button>
+
+<div class='guestform-link'>
+  <button class='my_clip_button' data-clipboard-target='fe_text' data-clipboard-text="localhost:3000/<%=@user.id%>/hellofriend" id='d_clip_button' title='Copy Link'>
+    <b>Copy Link</b>
+  </button>
+
+  <h4>
+    <label for='testarea'>Your form link:</label>
+  </h4>
+  <textarea cols='25' id='testarea' rows='3'>
+  localhost:3000/<%=@user.id%>/hellofriend
+ 
+  </textarea>
+
+</div>

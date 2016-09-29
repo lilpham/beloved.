@@ -1,10 +1,15 @@
 source 'https://rubygems.org'
 gem 'rails_12factor', group: :production
 gem 'devise'
-gem 'carrierwave', '~> 0.10.0'
-gem 'mini_magick', '~> 4.3'
+gem 'paperclip', '~> 5.1'
 gem 'icalendar', '~> 2.4', '>= 2.4.1'
 gem 'figaro'
+gem 'bootstrap'
+gem 'zeroclipboard-rails'
+gem 'owlcarousel-rails'
+
+
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'

@@ -12,6 +12,7 @@
 		<li>
 			<%= task.name %>
 			<%= task.deadline %>
+			<input type="checkbox" value="FALSE" />
 
 			<%= link_to 'Edit Task', edit_user_checklist_task_path(@user, checklist, task) %>
 
