@@ -18,7 +18,7 @@
 
 
 $(document).ready(function() {
-	$(".js-add-budget").on("click", setBudget);
+	$(".js-add-budget").on("click", setBudget, storeBudget);
 
 
 	var clip = new ZeroClipboard($("#d_clip_button"))
@@ -29,22 +29,30 @@ $(document).ready(function() {
 	$(".my_clip_button").data("clipboard-text", "localhost:3000/:user_id/hellofriend");
 
 	});
-	
-var budgetLeft  
 
 	function setBudget (theEvent) {
 	theEvent.preventDefault();
 
 	console.log("Set Budget Click");
 
+	var grand_total = $(".js-grand-total").text();
 	var budget = $(".js-budget").val();
+	var budgetLeft = budget- grand_total;
 
-		var budgetLeft  = parseInt(budget - "#{@grand.total}");
-		console.log(budgetLeft)
+	$('.js-budget-left').text(budgetLeft)	
 	}
 
-	$('.js-budget-left').append(budgetLeft)
+	function storeBudget (theEvent) {
+	theEvent.preventDefault();
+
+	console.log("Store Budget Click");
+
+	var budget = $(".js-budget").val();
+		
+	}
+
 });
+
 
 <!-- user customizes input on template -->
 // $(function () {
@@ -56,33 +64,30 @@ var budgetLeft
 //     }, 0);
 //   });
 // })
-$(document).ready(function(){
-    $('.message-submit-button').on('click', function(){
-    html2canvas($('.image-preview-wrap'), {
-      onrendered: function(canvas) {
-        var myImage = canvas.toDataURL('image/png');
-        $('.lightbox').fadeIn(200);
-        $('.new-image').attr('src', myImage).fadeIn(200);
-      }
-    });
-  });
+// $(document).ready(function(){
+//     $('.message-submit-button').on('click', function(){
+//     html2canvas($('.image-preview-wrap'), {
+//       onrendered: function(canvas) {
+//         var myImage = canvas.toDataURL('image/png');
+//         $('.lightbox').fadeIn(200);
+//         $('.new-image').attr('src', myImage).fadeIn(200);
+//       }
+//     });
+//   });
 
-    $('.closebox').on('click', function(){
-    $('.lightbox').css('display', 'none');
-  });
+//     $('.closebox').on('click', function(){
+//     $('.lightbox').css('display', 'none');
+//   });
 
-$('.custom-text').keyup(
-    function(){
-      var value = $(this).val();
-      $('.image-message').text(value);
-    }
-  );
+// $('.custom-text').keyup(
+//     function(){
+//       var value = $(this).val();
+//       $('.image-message').text(value);
+//     }
+//   );
 
-$('.template-form').submit(function(e){
-	e.preventDefault;
-	return false;
-});
-  });
-
-<!-- user can save the image -->
-
+// $('.template-form').submit(function(e){
+// 	e.preventDefault;
+// 	return false;
+// });
+//   });

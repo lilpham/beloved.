@@ -8,7 +8,7 @@
 
 	<%= link_to 'Delete', user_checklist_path(@user, checklist), method: :delete, data: { confirm: "Are you sure?" } %>
 	
-	<% checklist.tasks.each do |task| %>
+	<% checklist.tasks.order("deadline ASC").each do |task| %>
 		<li>
 		<%= task.name %>
 		<%= task.deadline.strftime("%m/%d/%Y") %>
