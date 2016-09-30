@@ -4,9 +4,10 @@ class ChecklistsController < ApplicationController
 	def index
 		@checklists = current_user.checklists
 		@user = current_user
-
 		@checklist = Checklist.new
+		@task = Task.new
 
+		@checklist = Checklist.find_by(user_id: current_user.id)
 
 	end 
 

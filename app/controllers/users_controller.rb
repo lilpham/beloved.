@@ -2,15 +2,19 @@ class UsersController < ApplicationController
 	before_action :authenticate_user!, only: [:show]
 
 	def show
-		@user = User.find_by(id: params[:user_id])
-
-		@users = current_user
+		@user = current_user
 
 		now = DateTime.now.to_date
 		wedding_date = current_user.wedding_date
 		@count = (wedding_date - now).to_i
 
 		@images = Image.where(user_id: current_user.id)
+
+		@checklists = current_user.checklists
+
+		@checklist = Checklist.find_by(user_id: current_user.id)
+		@task = Task.new
+
 	end 
 
 	def treat

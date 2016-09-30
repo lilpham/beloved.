@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require_tree .
 //= require zeroclipboard
-
+//= require bootstrap-sprockets
 
 
 $(document).ready(function() {

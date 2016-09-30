@@ -2,11 +2,12 @@ source 'https://rubygems.org'
 gem 'rails_12factor', group: :production
 gem 'devise'
 gem 'paperclip', '~> 5.1'
-gem 'icalendar', '~> 2.4', '>= 2.4.1'
 gem 'figaro'
-gem 'bootstrap'
 gem 'zeroclipboard-rails'
 gem 'owlcarousel-rails'
+gem "simple_calendar", "~> 2.0"
+gem 'bootstrap-sass', '~> 3.3.6'
+
 
 
 

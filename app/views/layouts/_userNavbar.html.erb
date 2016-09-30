@@ -1,18 +1,46 @@
 <!--user's navbar-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<div class="container">
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
 
+      <a class="navbar-brand" href="/users/<%=current_user.id%>">beloved.</a>
+    </div>
 
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-	<b><%=link_to "beloved.", root_path %></b>
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="nav navbar-nav navbar-left">
+        <li class="page-scroll">
+          	<%= link_to "Checklist", user_checklists_path(current_user.name) %>
+        </li>
+        <li class="page-scroll">
+          	<%= link_to "Budgeter", user_expenses_path(current_user.name) %> 
+        </li>
+        <li class="page-scroll">
+          	<%= link_to "Guest List", user_guests_path(current_user.name) %> 
+        </li>
+        <li class="page-scroll">
+          	<%= link_to "Treat", user_treat_path(current_user.name) %>
+        </li>
+        <li class="page-scroll">
+			<%= link_to "Create", user_create_path(current_user.name) %>
+        </li>
+        <li class="page-scroll">
+			<%= link_to "Settings", user_settings_path(current_user.name) %>
+        </li>
 
-	<%= link_to "Checklist", user_checklists_path(current_user.name) %>
-	<%= link_to "Budgeter", user_expenses_path(current_user.name) %> 
-	<%= link_to "Guest List", user_guests_path(current_user.name) %> 
-	<%= link_to "Treat", user_treat_path(current_user.name) %>
-	<%= link_to "Create", user_create_path(current_user.name) %>
-	<%= link_to "Settings", user_settings_path(current_user.name) %>
-
-	<img src="/images/hamburgermenu.png" width="50px">
-
+      </ul>
+    </div>
   </div>
-</nav>
+<body>
+
+</body>
+</html>

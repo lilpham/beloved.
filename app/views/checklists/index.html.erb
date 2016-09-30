@@ -10,9 +10,9 @@
 	
 	<% checklist.tasks.each do |task| %>
 		<li>
-			<%= task.name %>
-			<%= task.deadline %>
-			<input type="checkbox" value="FALSE" />
+		<%= task.name %>
+		<%= task.deadline.strftime("%m/%d/%Y") %>
+
 
 			<%= link_to 'Edit Task', edit_user_checklist_task_path(@user, checklist, task) %>
 
@@ -20,10 +20,8 @@
 		</li>
 	<% end %>
 
-
+	<%= render '/tasks/taskform' %>
 	</ul>
-
-
 
 <% end %>
 <br>

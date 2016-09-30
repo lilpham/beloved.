@@ -26,4 +26,7 @@ class SitesController < ApplicationController
 		render :contact
 	end
 	
+	def set_time_zone
+		p "test"
+	end
 end

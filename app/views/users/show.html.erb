@@ -1,28 +1,158 @@
-<h1> Welcome, <%= current_user.name %>! </h1>
-<h2>Only <%= @count %> days until you and <%=current_user.fiance_name%> tie the knot!</h2>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<div class="container-fluid">
+		<!--Row 1 (12)-->
+		<div class="row well">
+			<div class="col-xs-12">
+				<h1> Welcome, <%= current_user.name %>! </h1>
+				<h2>Only <%= @count %> days until you and <%=current_user.fiance_name%> tie the knot!</h2>
+			</div>
+		</div>
+
+		<!--Row 2 (12) -->
+		<div class="row well">
+			<div class="col-xs-12">
+				<!--Upload photos -->
+				<p> Customize your page with photos </p>
+				<%= render 'form' %>
+
+				<% @images.each do |img| %>
+					<%= image_tag img.image.url(:large) %>
+				<% end %>
+			</div>
+		</div>
+
+		<!--Row 3 (4,4,4)-->		
+		<div class="row well">
+			<div class="col-xs-4">
+				<!-- Calendar -->
+				<p> CALENDAR </p>
+				<%= month_calendar do |date| %>
+				  <%= date %>
+				<% end %>
+			</div>
+
+			<div class="col-xs-4">
+				<!-- 'This Week's Checklist --> 
+				<% @checklists.each do |checklist| %>
+	
+					<% if checklist.title == "This Week" %>
+
+					<%= link_to "#{checklist.title}", user_checklist_path(@user, checklist) %>
+
+					<%= link_to 'Edit', edit_user_checklist_path(@user, checklist) %> 
+
+					<%= link_to 'Delete', user_checklist_path(@user, checklist), method: :delete, data: { confirm: "Are you sure?" } %>
+				
+						<% checklist.tasks.each do |task| %>
+							<li>
+								<%= task.name %>
+								<%= task.deadline.strftime("%m/%d/%Y") %>
+
+								<%= link_to 'Edit Task', edit_user_checklist_task_path(@user, checklist, task) %>
+
+								<%= link_to 'Delete Task', user_checklist_task_path(@user, checklist, task), method: :delete, data: { confirm: "Are you sure?" } %>
+							</li>
+						<% end %>
+						<%= render '/tasks/taskform' %>
+					<% end %>
+
+				<% end %>
+
+			</div>
+
+			<div class="col-xs-4">
+				<% @checklists.each do |checklist| %>
+				<!-- 'This Month' Checklist --> 
+					<% if checklist.title == Date.today.strftime("%B")%>
+
+					<%= link_to "#{checklist.title}", user_checklist_path(@user, checklist) %>
+
+					<%= link_to 'Edit', edit_user_checklist_path(@user, checklist) %> 
+
+					<%= link_to 'Delete', user_checklist_path(@user, checklist), method: :delete, data: { confirm: "Are you sure?" } %>
+				
+						<% checklist.tasks.each do |task| %>
+							<li>
+								<%= task.name %>
+								<%= task.deadline.strftime("%m/%d/%Y") %>
+
+								<%= link_to 'Edit Task', edit_user_checklist_task_path(@user, checklist, task) %>
+
+								<%= link_to 'Delete Task', user_checklist_task_path(@user, checklist, task), method: :delete, data: { confirm: "Are you sure?" } %>
+							</li>
+						<% end %>
+					<% end %>
+
+				<% end %>
+			</div>
+		</div>
+
+		<!--Row 4 (6,6)-->
+		<div class="row well">
+			<div class="col-xs-6">
+			</div>
+
+			<div class="col-xs-6">
+			</div>
+		</div>
+
+		<!--Row 5 (12)-->
+		<div class="row well">
+			<div class="col-xs-12">
+				<!-- TREAT -->
+				<p> TREAT </p>
+				<button>Treat yo'self</button>
+			</div>
+		</div>
+
+		<!--Row 6 (2,8,2)-->
+		<div class="row well">
+			<div class="col-xs-2">
+			</div>
+
+			<div class="col-xs-8">
+				<div class="thumbnail">
+			      <img src="..." alt="...">
+			      <div class="caption">
+			        <h3>Thumbnail label</h3>
+			        <p>...</p>
+			        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+			      </div>
+
+			      </div>
+			</div>
+
+			<div class="col-xs-2">
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
 
 
-<!--Upload photos -->
-<p> Upload photos of you and your fiancé/fiancée or inspirational photos</p>
-<%= render 'form' %>
 
 
-<% @images.each do |img| %>
-	<%= image_tag img.image.url(:large) %>
-<% end %>
 
 
-<!-- Calendar -->
-<p> CALENDAR w/dates</p>
 
 
-<!-- Checklist Snapshot (current month, current week)--> 
 
-<!-- TREAT -->
-<p> TREAT </p>
-<button>Treat yo'self</button>
 
-<!-- Jams -->
+
+
+
+
+
+
+
+
 
 
 
