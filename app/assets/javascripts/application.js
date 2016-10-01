@@ -15,6 +15,8 @@
 //= require_tree .
 //= require zeroclipboard
 //= require bootstrap-sprockets
+//= require owl.carousel
+
 
 
 $(document).ready(function() {
@@ -91,3 +93,18 @@ $(document).ready(function() {
 // 	return false;
 // });
 //   });
+
+// Image Carousel  
+$(document).ready(function() {
+ 
+  $("#owl-demo").owlCarousel({
+ 
+      autoPlay: 3000, //Set AutoPlay to 3 seconds
+ 
+      items : 4,
+      itemsDesktop : [1199,3],
+      itemsDesktopSmall : [979,3]
+ 
+  });
+ 
+});

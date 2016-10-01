@@ -11,10 +11,13 @@
  * It is generally better to create a new file per style scope.
  *
  *= require simple_calendar
+ *= require owl.carousel
+*= require owl.theme
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
 
 
 /*create page*/
@@ -106,5 +109,11 @@
 
 
 //IMAGE SLIDER
-
-
+#owl-demo .item{
+  margin: 3px;
+}
+#owl-demo .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
