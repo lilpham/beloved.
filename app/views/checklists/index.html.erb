@@ -10,13 +10,25 @@
 	
 	<% checklist.tasks.order("deadline ASC").each do |task| %>
 		<li>
-		<%= task.name %>
-		<%= task.deadline.strftime("%m/%d/%Y") %>
+	        <% if task.completed? %>	
+				<p style="opacity: 0.5;" class="task-title"><strike> 
+				<%= task.name %>
+				<%= task.deadline.strftime("%m/%d/%Y") %>
+				</strike></p>
+				<p style="opacity: 0.5;" class="time-created-at task-sub-title">Completed <%= time_ago_in_words(task.completed_at) %> ago</p>
 
+				<%= link_to 'Delete Task', user_checklist_task_path(@user, checklist, task), method: :delete, data: { confirm: "Are you sure?" } %>
+			<% else %>
+				<%= task.name %>
+				<%= task.deadline.strftime("%m/%d/%Y") %>
 
-			<%= link_to 'Edit Task', edit_user_checklist_task_path(@user, checklist, task) %>
+				<%= link_to "Mark As Complete", complete_user_checklist_task_path(@user,checklist,task), method: :patch %>
+			
+				<%= link_to 'Edit Task', edit_user_checklist_task_path(@user, checklist, task) %>
 
-			<%= link_to 'Delete Task', user_checklist_task_path(@user, checklist, task), method: :delete, data: { confirm: "Are you sure?" } %>
+				<%= link_to 'Delete Task', user_checklist_task_path(@user, checklist, task), method: :delete, data: { confirm: "Are you sure?" } %>
+			<% end %>
+		
 		</li>
 	<% end %>
 

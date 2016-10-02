@@ -38,7 +38,7 @@ class TasksController < ApplicationController
 		# @task.user_id = @user.id
 		@task.checklist_id = @checklist.id
 
-		
+
 		if @task.update(task_params)
 			flash[:notice] = "task successfully updated!"
 			redirect_to url_for(:controller => :checklists, :action => :index)
@@ -57,6 +57,12 @@ class TasksController < ApplicationController
 			flash[:notice] = "task deleted"
 			redirect_to :back
 		end
+	end
+
+	def complete
+		@task = Task.find(params[:id])
+		@task.update_attribute(:completed_at, Time.now)
+		redirect_to url_for(:controller => :checklists, :action => :index)
 	end
 
 	private

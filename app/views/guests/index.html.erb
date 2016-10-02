@@ -3,7 +3,8 @@
 <% @guests.each do |guest| %>
 
 	<%= guest.first_name %>
-	<%= guest.last_name %>
+  <%= guest.last_name %>
+	<%= guest.party_name %>
 	<%= guest.phone_number %>
 	<%= guest.address_1 %>
   <%= guest.address_2 %>
@@ -16,6 +17,7 @@
 	<%= link_to "Delete", user_guest_path(@user, guest), method: :delete, data: { confirm: "Are you sure?" } %>
 
 <% end %> 
+
 
 <%= render 'guestform' %>
 

@@ -22,19 +22,17 @@
 		<!--Row 2 (12) -->
 		<div class="row well">
 			<div class="col-xs-12">
-					<!--Upload photos -->
-					<p> Customize your page with photos </p>
-					<%= render 'form' %>
 					<!-- Carousel -->
 					<div id="owl-demo">
 					<% @images.each do |img| %>
 					  <div class="item">  <%= image_tag img.image.url(:thumb) %> </div>
 					<% end %>   
-					 
-
+					</div>
+					<!--Upload photos -->
+					<p> Customize your page with photos </p>
+					<%= render 'form' %>	
 			</div>
-
-		</div>	
+		</div>
 		
 
 		<!--Row 3 (4,4,4)-->		
@@ -109,7 +107,7 @@
 			<!-- Weekly Playlist -->
 			<h4> Our Weekly Jams <i>(update weekly)</i></h4>
 			<p>Our favorite jams to get you in an ooey gooey, heart-meltin' mood for plannin' </p>
-			<iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Alpham92%3Aplaylist%3A5vvIY5KpMKvig1BSyReGNG" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+			<iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Abelovedco%3Aplaylist%3A7yD5cVeXFXbdBKwDDNCbeb" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
 			</div>
 
 			<div class="col-xs-6">
