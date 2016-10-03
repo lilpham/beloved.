@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161002211226) do
+ActiveRecord::Schema.define(version: 20161003164708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,21 @@ ActiveRecord::Schema.define(version: 20161002211226) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
+  end
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer  "priority",   default: 0, null: false
+    t.integer  "attempts",   default: 0, null: false
+    t.text     "handler",                null: false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
   end
 
   create_table "expenses", force: :cascade do |t|
@@ -65,7 +80,6 @@ ActiveRecord::Schema.define(version: 20161002211226) do
   create_table "tasks", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.boolean  "complete"
     t.boolean  "urgent"
     t.date     "deadline"
     t.datetime "created_at",   null: false
@@ -92,6 +106,8 @@ ActiveRecord::Schema.define(version: 20161002211226) do
     t.date     "wedding_date"
     t.boolean  "email_confirmed",        default: false
     t.string   "confirm_token"
+    t.string   "notifications"
+    t.string   "phone_number"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

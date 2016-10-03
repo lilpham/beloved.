@@ -17,7 +17,13 @@ class ApplicationController < ActionController::Base
   protected
   
   def setup_devise_parameters
-  	devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :fiance_name, :wedding_date])
+  	devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :fiance_name, :wedding_date, :notifications, :email])
+  end
+
+  def send_wedding_email
+    if Date.now == current_user.wedding_date
+      WeddingdayMailer.wedding_email(current_user).deliver_now
+    end
   end
   
 end

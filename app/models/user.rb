@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :name, :fiance_name, :wedding_date, presence: true
+  validates :name, :fiance_name, :wedding_date, :notifications, presence: true
 
   has_many :checklists
   has_many :guests

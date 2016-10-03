@@ -62,7 +62,16 @@ class TasksController < ApplicationController
 	def complete
 		@task = Task.find(params[:id])
 		@task.update_attribute(:completed_at, Time.now)
+
+		if @task.urgent == true 
+			TaskCompleteMailer.taskcomplete_email(current_user).deliver_now
+			flash[:notice] = "Congrats! You're one step closer towards wedding glory."
+
+		end 
+
+
 		redirect_to url_for(:controller => :checklists, :action => :index)
+
 	end
 
 	private

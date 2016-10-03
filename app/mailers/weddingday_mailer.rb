@@ -5,7 +5,4 @@ class WeddingdayMailer < ApplicationMailer
 		mail(to: @user.email, subject: "The day has finally come, #{@user.name}!")
 	end
 
-		if Date.now == @user.wedding_date
-			WeddingdayMailer.wedding_email(current_user).deliver_later
-		end
 end

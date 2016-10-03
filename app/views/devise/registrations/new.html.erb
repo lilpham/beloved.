@@ -36,6 +36,21 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <div>
+    <%= f.label :notifications %><i>(we'll send you reminders and updates on your account and subscription!)</i><br>
+    <%= f.select :notifications,[
+      ['Email'],['Text'],['Both'],
+      ] %>
+  </div> 
+
+  
+    <div>
+      <%= f.label :phone_number %>
+      <%= f.text_field :phone_number %>
+    </div>
+  
+
+
 
   <div class="actions">
     <%= f.submit "Sign up" %>

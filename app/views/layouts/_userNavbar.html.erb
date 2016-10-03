@@ -34,7 +34,10 @@
 			<%= link_to "Create", user_create_path(current_user.name) %>
         </li>
         <li class="page-scroll">
-			<%= link_to "Settings", user_settings_path(current_user.name) %>
+      <%= link_to "Settings", user_settings_path(current_user.name) %>
+        </li>
+        <li class="page-scroll">
+			<%= link_to "Logout", destroy_user_session_path, method: "delete" %>
         </li>
 
       </ul>

@@ -40,10 +40,7 @@ class UsersController < ApplicationController
 		if params[:images]
 	        #===== The magic is here ;)
 	        params[:images].each { |image|
-	        	p image
 		        i = @user.images.create(image: image)
-		        p i
-		        p i.image
 	        }
       	end
 
