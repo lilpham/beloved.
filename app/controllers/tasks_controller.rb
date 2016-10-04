@@ -38,13 +38,14 @@ class TasksController < ApplicationController
 		# @task.user_id = @user.id
 		@task.checklist_id = @checklist.id
 
-
-		if @task.update(task_params)
+		if @task.name.blank? || @task.deadline.blank?
+			@task.update(task_params)
 			flash[:notice] = "task successfully updated!"
-			redirect_to url_for(:controller => :checklists, :action => :index)
+			redirect_to :back
 		else
+			@task.name.blank? && @task.name.blank?
 			flash[:alert] = "Please fill text fields with characters"
-			render :edit
+			redirect_to :back
 		end
 	end
 
@@ -69,13 +70,12 @@ class TasksController < ApplicationController
 
 		end 
 
-
 		redirect_to url_for(:controller => :checklists, :action => :index)
 
 	end
 
 	private
 	def task_params
-		params.require(:task).permit(:name, :description, :deadline, :checklist_id, :user_id, :complete)
+		params.require(:task).permit(:name, :description, :deadline, :checklist_id, :user_id, :completed_at, )
 	end
 end

@@ -2,7 +2,7 @@
 
 <% @checklists.each do |checklist| %>
 	<ul>
-	<%= link_to "#{checklist.title}", user_checklist_path(@user, checklist.id) %>
+	<%= link_to "#{checklist.title}", user_checklists_path(@user, checklist.id) %>
 
 	<%= link_to 'Edit', edit_user_checklist_path(@user, checklist) %> 
 
@@ -14,7 +14,7 @@
 				<p style="opacity: 0.5;" class="task-title"><strike> 
 				<%= task.name %>
 				<%= task.deadline.strftime("%m/%d/%Y") %>
-				</strike></p>
+				</strike></p>git 
 				<p style="opacity: 0.5;" class="time-created-at task-sub-title">Completed <%= time_ago_in_words(task.completed_at) %> ago</p>
 
 				<%= link_to 'Delete Task', user_checklist_task_path(@user, checklist, task), method: :delete, data: { confirm: "Are you sure?" } %>
@@ -30,7 +30,9 @@
 			<% end %>
 		
 		</li>
+
 	<% end %>
+		<%= link_to 'Add Task', new_user_checklist_task_path(@user.id, @checklist.id) %> 
 
 	<%= render '/tasks/taskform' %>
 	</ul>

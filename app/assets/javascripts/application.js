@@ -12,12 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
 //= require zeroclipboard
 //= require bootstrap-sprockets
 //= require owl.carousel
-
-
+//= require_tree .
 
 $(document).ready(function() {
 	$(".js-add-budget").on("click", setBudget, storeBudget);
@@ -55,48 +53,8 @@ $(document).ready(function() {
 
 });
 
-
-<!-- user customizes input on template -->
-// $(function () {
-//   var $text = $('#custom-text');
-//   var $input = $('#user-input');
-//   $input.on('keydown', function () {
-//     setTimeout(function () {
-//       $text.html($input.val());
-//     }, 0);
-//   });
-// })
-// $(document).ready(function(){
-//     $('.message-submit-button').on('click', function(){
-//     html2canvas($('.image-preview-wrap'), {
-//       onrendered: function(canvas) {
-//         var myImage = canvas.toDataURL('image/png');
-//         $('.lightbox').fadeIn(200);
-//         $('.new-image').attr('src', myImage).fadeIn(200);
-//       }
-//     });
-//   });
-
-//     $('.closebox').on('click', function(){
-//     $('.lightbox').css('display', 'none');
-//   });
-
-// $('.custom-text').keyup(
-//     function(){
-//       var value = $(this).val();
-//       $('.image-message').text(value);
-//     }
-//   );
-
-// $('.template-form').submit(function(e){
-// 	e.preventDefault;
-// 	return false;
-// });
-//   });
-
 // Image Carousel  
 $(document).ready(function() {
- 
   $("#owl-demo").owlCarousel({
  
       autoPlay: 3000, //Set AutoPlay to 3 seconds
@@ -108,6 +66,34 @@ $(document).ready(function() {
   });
  
 });
-// Checkbox Task
+
+$(document).ready(function(){
+ $('.message-submit-button').on('click', function(){
+html2canvas($('.image-preview-wrap'), {
+  onrendered: function(canvas) {
+    var myImage = canvas.toDataURL('image/png');
+    $('.lightbox').fadeIn(200);
+    $('.new-image').attr('src', myImage).fadeIn(200);
+  }
+});
+});
+$('.lightbox').css('display', 'none');
+});
+$('.message-box').keyup(
+function(){
+  var value = $(this).val();
+  $('.image-message').text(value);
+}
+);
+$('.message-form').submit(function(e){
+e.preventDefault;
+return false;
+});
+
+
+
+
+
+
 
 

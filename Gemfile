@@ -10,6 +10,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem "jquery-slick-rails"
 gem 'owlcarousel-rails'
 gem 'twilio-ruby'
+gem 'stripe'
+
 
 # Use delayed job for running background jobs
 gem 'delayed_job_active_record'

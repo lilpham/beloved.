@@ -52,7 +52,7 @@ class ChecklistsController < ApplicationController
 
 		if @checklist.update(checklist_params)
 			flash[:notice] = "checklist successfully updated!"
-			redirect_to user_checklists_path
+			redirect_to :back
 		else
 			flash[:alert] = "Please fill text fields with characters"
 			render :edit

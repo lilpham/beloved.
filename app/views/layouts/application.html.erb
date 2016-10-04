@@ -3,8 +3,11 @@
   <head>
     <title>Beloved</title>
     <%= csrf_meta_tags %>
+    <meta charset="utf-8">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+
     
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -39,6 +42,13 @@
     <%= render '/layouts/flash' %>
     
     <%= yield %>
-
+  
   </body>
+
+  <footer>
+  <br>
+    <div class="container">
+        <p class="text-muted">Sticky footer content here.</p>
+      </div>
+  </footer>
 </html>

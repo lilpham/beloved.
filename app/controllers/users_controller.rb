@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
 		@checklist = Checklist.find_by(user_id: current_user.id)
 		@task = Task.new
+		
 
 	end 
 

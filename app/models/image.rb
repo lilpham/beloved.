@@ -2,7 +2,7 @@ class Image < ApplicationRecord
 	belongs_to :user 
 
 	has_attached_file :image, 
-	styles: {thumb: "900x900#"},
+	styles: {thumb: "500x500#"},
     :path => ":rails_root/public/images/:id/:style/:filename",
     :url  => "/images/:id/:style/:filename"
 

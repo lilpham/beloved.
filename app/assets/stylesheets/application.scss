@@ -21,91 +21,71 @@
 
 
 /*create page*/
-// html { height: 100%; }
+.image-preview, .image-preview-wrap {
+	position: center;
+	margin: 0 auto;
+}
 
-// body {
-// 	background-image: radial-gradient(
-// 		circle,
-// 		lighten($background-color, 20%),
-// 		lighten($background-color, 5%)
-// 	);
-// }
+.lightbox {
+	display: none; 
+	position: fixed; 
+	z-index: 99;
+}
 
-// h1 {
-// 	margin-top: 35px;
-// 	color: #fff;
-// 	font-family: Montserrat;
-// 	text-transform: uppercase;
+.image-preview {
+	background-image: url("/images/snapchat_filter.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
 
-// }
+	width: 550px;
+	height: 1000px;
+}
 
-// .image-preview, .image-preview-wrap {
-// 	position: center;
-// 	margin: 0 auto;
-// }
+.image-message {
+	text-transform: uppercase;
+	text-align: center;
+  	position: relative;
+	word-wrap: break-word;
+	padding-left: 80px;
+}
 
-// .lightbox {
-// 	display: none; 
-// 	position: fixed; 
-// 	z-index: 99;
-// }
+.image {
+	display: none;
+	position: fixed;
+	top: 25px;
+	right: 70px;
+	margin: 0 auto;
+	z-index: 1000;
+}
 
-// .image-preview {
-// 	background-image: url("/images/snapchat_filter.png");
-// 	background-position: center center;
-// 	background-repeat: no-repeat;
-// 	background-size: contain;
+.lightbox {
+	display: none;
+	position: fixed;
+	top: 0;
+	z-index: 500;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(#1c1c1c, 0.7);
+}
 
-// 	width: 550px;
-// 	height: 1000px;
-// }
+.closebox {
+	color: #fff;
+	text-decoration: none;
+	font-size: 50px;
+	position: fixed;
+	top: 20px;
+	right: 25px;
+}
 
-// .image-preview, .image-preview-wrap {
-// 	margin: 0 auto;
-// 	width: (0.75 * $height) + px;
-// 	height: $height + px;
-// }
-
-// .image-message {
-// 	text-transform: uppercase;
-// 	text-align: center;
-//   	position: relative;
-// 	word-wrap: break-word;
-// 	padding-left: 80px;
-// }
-
-
-// .lightbox {
-// 	display: none;
-// 	position: fixed;
-// 	top: 0;
-// 	z-index: 500;
-// 	width: 100%;
-// 	height: 100%;
-// 	background-color: rgba(#1c1c1c, 0.7);
-// }
-
-// .close-lightbox {
-// 	color: #fff;
-// 	text-decoration: none;
-// 	font-size: 50px;
-// 	position: fixed;
-// 	top: 20px;
-// 	right: 25px;
-// }
-
-// .image {
-// 	display: none;
-// 	position: fixed;
-// 	top: 25px;
-// 	right: 70px;
-// 	margin: 0 auto;
-// 	z-index: 1000;
-// }
-
-// p {
-// 	margin: 0 auto;
-// }
+.image {
+	display: none;
+	position: fixed;
+	top: 25px;
+	right: 70px;
+	margin: 0 auto;
+	z-index: 1000;
+}
 
 
 //IMAGE SLIDER
@@ -116,4 +96,13 @@
   display: block;
   width: 100%;
   height: auto;
+}
+
+//FOOTER
+footer {
+  position: absolute;
+  bottom: -1760;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 100px;
 }

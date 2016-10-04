@@ -6,7 +6,7 @@ class Task < ApplicationRecord
 	after_create :reminder
 
 
-	@@REMINDER_TIME = 1.day
+	@@REMINDER_TIME = 1.days
 
 
 	def reminder 
