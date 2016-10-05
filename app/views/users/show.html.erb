@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<!-- Important Owl stylesheet -->
-	<link rel="stylesheet" href="owl-carousel/owl.carousel.css">
-	 
-	<!-- Default Theme -->
-	<link rel="stylesheet" href="owl-carousel/owl.theme.css">
-</head>
 
-<body>
-	<div class="container-fluid">
+	<div class="container-fluid user-home">
+		<div class="row user-home-row">
+			<div class="col-xs-12 home-col"> 
+				<div id="masthead">
+				  <h1 class="message">let's do this.</h1>
+				  <a href="#content" class="down scroll">
+				    <div>V</div>
+				  </a>
+				</div>
+			</div>
+		</div>
 		<!--Row 1 (12)-->
-		<div class="row">
+		<div class="row row1">
 			<div class="col-xs-12">
-				<h1> Welcome, <%= current_user.name %>! </h1>
-				<h2>Only <%= @count %> days until you and <%=current_user.fiance_name%> tie the knot!</h2>
+				<h1 class="welcome-text"> Guess what, <%= current_user.name %>? </h1>
+				<h4 class="welcome-subtext">Only <%= @count %> days until you & <%=current_user.fiance_name%> tie the knot!</h4>
+			<hr class="style1">
 			</div>
 		</div>
 
@@ -29,23 +29,46 @@
 					<% end %>   
 					</div>
 					<!--Upload photos -->
-					<p> Customize your page with photos </p>
-					<%= render 'form' %>	
+					<!-- Button trigger modal -->
+								<span class="glyphicon glyphicon-plus-sign" data-upload-photo="photoupload" data-toggle="modal" data-target="#uploadPhoto">
+								</span>
+								
+								<div class="modal fade" id="uploadPhoto">
+								  <div class="modal-dialog" role="document">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								          <span aria-hidden="true">&times;</span>
+								        </button>
+								        <h4 class="modal-title">Upload photos of you and bae</h4>
+								      </div>
+								      <div class="modal-body">
+										<%= render 'form' %>	
+								    	</div><!-- /.modal-content -->
+								    </div>
+								  </div><!-- /.modal-dialog -->
+								</div><!-- /.modal --> 
 			</div>
+			<br>
 		</div>
 		
 
 		<!--Row 3 (4,4,4)-->		
-		<div class="row">
-			<div class="col-xs-4">
+		<div class="row row2">
+			<div class="col-xs-4" id="calendar">
 				<!-- Calendar -->
-				<h3>Calendar</h3>
+				<h2>Calendar</h2>
+				<hr class="cal-style1">
+
 				<%= month_calendar do |date| %>
 				  <%= date %>
 				<% end %>
 			</div>
 
-			<div class="col-xs-4">
+				<h2> Weekly Focus</h2>
+				<hr class="checklists-style1">
+
+			<div class="col-xs-4 checklist">
 				<!-- 'This Week's Checklist --> 
 				<% @checklists.each do |checklist| %>
 	
@@ -166,7 +189,7 @@
 			</div>
 			
 
-			<div class="col-xs-4">
+			<div class="col-xs-4 checklist">
 				<!-- 'This Month' Checklist --> 
 				<% @checklists.each do |checklist| %>
 					<% if checklist.title == Date.today.strftime("%B")%>
@@ -285,20 +308,18 @@
 
 			</div>
 		</div>
-		</div>
 
 		<!--Row 4 (6,6)-->
-		<div class="row">
-			<div class="col-xs-6">
+		<div class="row row4">
+			<div class="col-xs-6 playlist">
 			<!-- Weekly Playlist -->
 			<h4> Our Weekly Jams <i>(update weekly)</i></h4>
 			<p>Our favorite jams to get you in an ooey gooey, heart-meltin' mood for plannin' </p>
 			<iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Abelovedco%3Aplaylist%3A7yD5cVeXFXbdBKwDDNCbeb" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
 			</div>
 
-			<div class="col-xs-6">
+			<div class="col-xs-6 image-quote">
 			<!--Image with Quote-->
-				<img src="/images/11/IMG_0645.jpg", width="100%">
 			</div>
 		</div>
 
@@ -332,13 +353,6 @@
 		</div>
 	</div>
 
-<!--  jQuery 1.7+  -->
-<script src="jquery-1.9.1.min.js"></script>
- 
-<!-- Include js plugin -->
-<script src="assets/owl-carousel/owl.carousel.js"></script>
-</body>
-</html>
 
 
 

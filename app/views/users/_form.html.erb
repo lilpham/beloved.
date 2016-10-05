@@ -2,9 +2,9 @@
 	<%= form_for @user, html: { multipart: true } do |f| %>
 
 	  <%= file_field_tag "images[]", type: :file, multiple: true %>
-	  
+	<br>
 	<div class="actions">
-	  <%= f.submit "Add Photo" %>
+	 <button class="btn btn-info btn-sm">Add</button>
 	 </div>
 	<% end %>
 	<br>

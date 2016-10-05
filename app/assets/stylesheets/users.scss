@@ -2,3 +2,200 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 */
+
+//navbar
+.user-navbar {
+	padding-top: 5px;
+}
+
+
+p {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: normal;
+}
+
+//row 1
+.row1 {
+	padding-top: 80px;
+}
+.welcome-text, .welcome-subtext {
+	text-align: center;
+}
+.welcome-text {
+	font-family: 'Playfair Display', serif;
+	letter-spacing: 4px;
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+
+.welcome-subtext {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: normal;
+}
+
+
+//row 2
+.upload-photo {
+	border-style: solid;
+	border-width: 1px;
+	padding: 5px;
+	margin-right: 2px;
+	font-size: 12px;
+}
+
+.glyphicon-plus-sign {
+	font-size: 20px;
+	position: absolute;
+	right: 20px;
+	padding-top: 325px;
+}
+
+.style1 {
+	border-top: 1.5px;
+	border-style: solid;
+	border-color: #AEB8B8;
+	width: 60%;
+}
+
+.row2 {
+	h2 {
+		font-family: 'Playfair Display', serif;
+		font-weight: 400px;
+		letter-spacing: 4px;
+		text-align: center;
+		padding-top: 10px;
+	}
+}
+
+.checklists-style1 {
+	border-top: 1.5px;
+	border-style: solid;
+	border-color: #AEB8B8;
+	width: 40%;
+	margin-top: -6px;
+}
+
+//header
+
+#masthead{
+    background: #ffc8ad;
+    height: 100%;
+    .message {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: 'Open Sans', sans-serif;
+        font-style:italic;
+        text-align:center;
+    }
+    h1{
+        margin: 0px;
+        color:#fff;
+    }
+}
+
+html,
+body,
+.user-home,
+.user-home-row,
+.home-col {
+	height: 100%;
+}
+
+#content{
+    padding:20px 0;
+    line-height:180%;
+}
+
+.down{
+    position:absolute;
+    bottom:0;
+    text-decoration:none;
+    color:#fff;
+    padding:0 0 40px;
+    font-size:24px;
+    font-weight:700;
+    font-family: 'Orbitron', sans-serif;
+    line-height:50px;
+    margin-left:50%;
+    > div{
+        border:4px solid #fff;
+        height:48px;
+        width:48px;
+        border-radius:88%;
+        margin-left:-36px;
+        text-align:center;
+    }
+}
+
+//Row 3
+.cal-style1 {
+	border-top: 1.5px;
+	border-style: solid;
+	border-color: #AEB8B8;
+	width: 86%;
+	margin-top: -6px;
+}
+#calendar {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: normal;
+	position: relative;
+	text-align: center;
+	text-transform: uppercase;
+	h2 {
+		font-family: 'Playfair Display', serif;
+		font-weight: 400px;
+		letter-spacing: 4px;
+	}
+	margin-left: 92px;
+}
+
+.calendar-title {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	padding-right: 65px;
+	padding-left: 65px;
+	text-transform: uppercase;
+}
+
+.calendar-heading {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: normal;
+	padding-bottom: 15px;
+}
+
+.table-striped {
+	border-width: 25px;
+	border-color: #333233;
+	box-shadow: 10px 10px 0px 2px #f0f0f0;
+}
+
+
+// Row 3 Checklist
+.checklist {
+	border-style: solid;
+	border-width: 2px;
+	border-color: #3C4646;
+	box-shadow: 10px 10px 0px 2px #f0f0f0;
+	padding: 20px;
+	margin-left: 175px;
+	margin-top: 33px;
+}
+
+// Row 4
+.row4 {
+	padding-top: 10px;
+}
+.playlist {
+	width: 30%;
+
+}
+
+.image-quote {
+	background-image: url("/images/11/IMG_0645.jpg");
+	background-size: cover;
+}
+
+
+

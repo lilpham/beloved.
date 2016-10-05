@@ -67,6 +67,8 @@ $(document).ready(function() {
  
 });
 
+//snapchat filter
+
 $(document).ready(function(){
  $('.message-submit-button').on('click', function(){
 html2canvas($('.image-preview-wrap'), {
@@ -90,10 +92,19 @@ e.preventDefault;
 return false;
 });
 
+// MightyScroll Mastheader
+$.fn.scrollFun = function () {
+	$(this).click(function (e) {
+		var h = $(this).attr('href'),
+			target;
 
-
-
-
-
-
-
+		if (h.charAt(0) == '#' && h.length > 1 && (target = $(h)).length > 0) {
+			var pos = Math.max(target.offset().top, 0);
+			e.preventDefault();
+			$('body,html').animate({
+				scrollTop: pos
+			}, 'slow', 'swing');
+		}
+	});
+};
+$('.scroll').scrollFun();
