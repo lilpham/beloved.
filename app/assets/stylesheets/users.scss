@@ -3,78 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 */
 
-//navbar
-.user-navbar {
-	padding-top: 5px;
-}
-
-
-p {
-	font-family: 'Open Sans', sans-serif;
-	font-weight: normal;
-}
-
-//row 1
-.row1 {
-	padding-top: 80px;
-}
-.welcome-text, .welcome-subtext {
-	text-align: center;
-}
-.welcome-text {
-	font-family: 'Playfair Display', serif;
-	letter-spacing: 4px;
-	font-weight: bold;
-	padding-bottom: 5px;
-}
-
-.welcome-subtext {
-	font-family: 'Open Sans', sans-serif;
-	font-weight: normal;
-}
-
-
-//row 2
-.upload-photo {
-	border-style: solid;
-	border-width: 1px;
-	padding: 5px;
-	margin-right: 2px;
-	font-size: 12px;
-}
-
-.glyphicon-plus-sign {
-	font-size: 20px;
-	position: absolute;
-	right: 20px;
-	padding-top: 325px;
-}
-
-.style1 {
-	border-top: 1.5px;
-	border-style: solid;
-	border-color: #AEB8B8;
-	width: 60%;
-}
-
-.row2 {
-	h2 {
-		font-family: 'Playfair Display', serif;
-		font-weight: 400px;
-		letter-spacing: 4px;
-		text-align: center;
-		padding-top: 10px;
-	}
-}
-
-.checklists-style1 {
-	border-top: 1.5px;
-	border-style: solid;
-	border-color: #AEB8B8;
-	width: 40%;
-	margin-top: -6px;
-}
-
 //header
 
 #masthead{
@@ -128,6 +56,73 @@ body,
     }
 }
 
+//navbar
+.user-navbar {
+	padding-top: 5px;
+}
+
+
+p {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: normal;
+}
+
+//row 1
+.row1 {
+	padding-top: 80px;
+}
+.welcome-text, .welcome-subtext {
+	text-align: center;
+}
+.welcome-text {
+	font-family: 'Playfair Display', serif;
+	letter-spacing: 4px;
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+
+.welcome-subtext {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: normal;
+}
+
+
+//photo upload
+.upload-photo {
+	border-style: solid;
+	border-width: 1px;
+	padding: 5px;
+	margin-right: 2px;
+	font-size: 12px;
+}
+
+.glyphicon-plus-sign {
+	font-size: 20px;
+	position: absolute;
+	right: 20px;
+	padding-top: 325px;
+}
+
+.style1 {
+	border-top: 1.5px;
+	border-style: solid;
+	border-color: #AEB8B8;
+	width: 60%;
+	margin-bottom: 30px;
+}
+
+//row 2
+.row2 {
+	padding-bottom: 60px;
+	h2 {
+		font-family: 'Playfair Display', serif;
+		font-weight: bold;
+		letter-spacing: 4px;
+		text-align: center;
+		padding-top: 10px;
+	}
+}
+
 //Row 3
 .cal-style1 {
 	border-top: 1.5px;
@@ -144,10 +139,18 @@ body,
 	text-transform: uppercase;
 	h2 {
 		font-family: 'Playfair Display', serif;
-		font-weight: 400px;
+		font-weight: bold;
 		letter-spacing: 4px;
 	}
 	margin-left: 92px;
+	a{
+		color: #ffbc9e;
+
+	}
+}
+
+.today-start-date {
+	background: #ffbc9e;
 }
 
 .calendar-title {
@@ -168,7 +171,7 @@ body,
 .table-striped {
 	border-width: 25px;
 	border-color: #333233;
-	box-shadow: 10px 10px 0px 2px #f0f0f0;
+	box-shadow: 10px 10px 0px 2px #f7dfd4;
 }
 
 
@@ -177,24 +180,129 @@ body,
 	border-style: solid;
 	border-width: 2px;
 	border-color: #3C4646;
-	box-shadow: 10px 10px 0px 2px #f0f0f0;
+	box-shadow: 10px 10px 0px 2px #f7dfd4;
 	padding: 20px;
-	margin-left: 175px;
+	margin-left: 165px;
 	margin-top: 33px;
+		h4 {
+			font-family: 'Open Sans', sans-serif;
+			text-align: center;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			margin-top: -8px;
+		}
+		a {
+			color: #706f6f;
+		}
+
+		a:hover{
+			color: #ffbc9e;
+		}
+}
+.checklists-style1 {
+	border-top: 1.5px;
+	border-style: solid;
+	border-color: #AEB8B8;
+	width: 40%;
+	margin-top: -6px;
+}
+
+.glyphicon-pencil:hover {
+	color: #ffbc9e;
+}
+
+.glyphicon-pencil {
+	color: #656363;
+}
+
+#thisweek-pencil {
+	position: absolute;
+	margin-right: 2px;
+	margin-left: 350px;
+	margin-top: 14px;
+}
+
+#thisweek-trash {
+	position: absolute;
+	margin-right: 4px;
+	margin-left: 370px;
+	margin-top: 14px;
+}
+
+#month-trash {
+	position: absolute;
+	margin-right : 4px;
+	margin-left: 370px;
+	margin-top: 14px;
+
+}
+
+#month-pencil {
+	position:absolute;
+	margin-left: 350px;
+	margin-top:14px;
+}
+
+#thisweek-plus {
+	position: absolute;
+    margin-left: 372px;
+    font-size: 14px;
+    margin-top: 85px;
+}
+
+#month-plus {
+	position: absolute;
+    margin-left: 372px;
+    margin-top: 186px;
+    font-size: 14px;
 }
 
 // Row 4
 .row4 {
-	padding-top: 10px;
+	border-top: 2px;
+    border-style: solid;
+    border-width: thin;
+    border-bottom: none;
+    background: #f2f2f2;
+    position: relative;
+	height: 100%;
 }
+
 .playlist {
 	width: 30%;
+	text-align: center;
+	margin-left: 118px;
+	margin-top: 60px;
+	h2 {
+		font-family: 'Playfair Display', serif;
+		font-weight: bold;
+		letter-spacing: 4px;
+		text-transform: uppercase;
+	}
+	.style1-playlist {
+		border-top: 1.5px;
+		border-style: solid;
+		border-color: #AEB8B8;
+		width: 96%;
+		margin-top: 0px;
+	}
+	p {
+		margin: -10px 0 10px;
+		padding-right: 25px;
+		padding-right: 25px;
+		margin-bottom: 40px;
 
+	}
+	
 }
 
 .image-quote {
-	background-image: url("/images/11/IMG_0645.jpg");
-	background-size: cover;
+	height: 100%;
+	width: 50%;
+    background-image: url("/images/bestisyet.JPG");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-left: 136px;
 }
 
 
