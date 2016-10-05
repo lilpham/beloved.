@@ -1,3 +1,13 @@
+<div class="new-charge-form" style="text-align: center;">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <%= form_tag user_charges_path(@user) do %>
   <article>
     <% if flash[:error].present? %>
@@ -6,9 +16,15 @@
       </div>
     <% end %>
     <label class="amount">
-      <span>Amount: $10.00</span>
+      <span>Monthly Subscription: <br> $10.00/Month
+      <br>
+      <br>
+      <i>Amount Due: $10.00 </i>
+      </span>
     </label>
   </article>
+  <br>
+  <br>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
@@ -16,3 +32,4 @@
           data-amount="1000"
           data-locale="auto"></script>
 <% end %>
+</div>

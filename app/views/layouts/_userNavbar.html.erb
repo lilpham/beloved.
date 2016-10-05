@@ -8,27 +8,30 @@
       <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container user-navbar">
 
-            <%= link_to "Checklist", user_checklists_path(current_user.name) %>
+          <a class="navbar-brand" href="/users/<%=current_user.name %>">
+            <img alt="beloved." src="/images/beloved_logo2.svg">
+          </a>
 
+           
+            <%= link_to "Checklist", user_checklists_path(current_user.name) %>
+           
             <%= link_to "Budgeter", user_expenses_path(current_user.name) %> 
-          
-            
+    
             <%= link_to "Guest List", user_guests_path(current_user.name) %> 
-            
             
             <%= link_to "Treat", user_treat_path(current_user.name) %>
             
-            
             <%= link_to "Create", user_create_path(current_user.name) %>
             
-            
             <%= link_to "Settings", user_settings_path(current_user.name) %>
-            
 
-          
-            <%= link_to "Logout", destroy_user_session_path, method: "delete" %>
-            
-          
+           <a class="logout"> 
+           <a class="social-icon" href="https://www.instgram.com/belovd.co"> <i class="fa fa-instagram" aria-hidden="true"></i></a>
+           <a class="social-icon" href="https://www.facebook.com/Beloved-560779050778839"> <i class="fa fa-facebook" aria-hidden="true"></i></a>
+           <a class="social-icon" href="https://www.pinterest.com/belovedco/"> <i class="fa fa-pinterest" aria-hidden="true"></i></a>
+
+           <%= link_to "Logout", destroy_user_session_path, method: "delete" %></a>
+
         </div>
       </nav>
 

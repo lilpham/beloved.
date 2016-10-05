@@ -98,5 +98,53 @@
   width: 100%;
   height: auto;
 }
+//Navbar Global
+.navbar {
+	box-shadow: 0 8px 6px -6px #999;
+	background-color: #FFF;
 
-//FOOTER
+}
+
+//User Navbar
+.user-navbar {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+    color: #363636;
+    margin-top: 14px;
+    text-transform: uppercase;
+    -webkit-box-shadow: 0 8px 6px -6px #999;
+    -moz-box-shadow: 0 8px 6px -6px #999;
+    width: 95%;
+    a {
+    	color: #6f6e6e;
+    	padding: 15px;
+    }
+	a:hover {
+		color: #363636;
+		text-decoration: none;
+	}
+
+    .logout {
+    	margin-left: 300px;
+    }
+    .logout:hover {
+    	color: #363636;
+    }
+    .navbar_brand, img {
+    	margin-top: -42px;
+    	margin-left: -33px;
+    }
+}
+
+// Social Icons
+.social-icon {
+	font-size: 18px;
+    margin: -13px;
+}
+.fa {
+	color: #f7dfd4;
+
+}
+.fa:hover {
+	color: #333;
+}

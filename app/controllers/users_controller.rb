@@ -12,8 +12,14 @@ class UsersController < ApplicationController
 
 		@checklists = current_user.checklists
 
-		@checklist = Checklist.find_by(user_id: current_user.id)
+		@checklist = current_user.checklists.find_by(title: "This Week")
+
+		Checklist.find_by(user_id: current_user.id)
 		@task = Task.new
+
+		@meetings = Meeting.all
+		@meeting = Meeting.new
+
 		
 
 	end 

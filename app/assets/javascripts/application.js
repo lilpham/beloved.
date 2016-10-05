@@ -108,3 +108,5 @@ $.fn.scrollFun = function () {
 	});
 };
 $('.scroll').scrollFun();
+
+// Hamburger Menu

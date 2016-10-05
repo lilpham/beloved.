@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     resources :guests 
 
     resources :checklists do 
-  	 resources :tasks do
+     resources :tasks do
         member do
           patch :complete
         end
@@ -31,7 +31,8 @@ Rails.application.routes.draw do
     end
     
     resources :charges
-
+    resources :meetings
+  
   end
 
 

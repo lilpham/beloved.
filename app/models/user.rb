@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :checklists
   has_many :guests
   has_many :expenses
+  has_many :meetings
 
   has_many :images, :dependent => :destroy 
 
