@@ -18,6 +18,7 @@
 @import "owl.carousel";
 @import "owl.theme";
 @import "users";
+@import "checklists";
 
 
 
@@ -33,14 +34,17 @@
 	z-index: 99;
 }
 
+.image-preview-wrap,
+.image-preview {
+	width: 550px;
+	height: 1000px;
+	margin: 0 auto;
+}
 .image-preview {
 	background-image: url("/images/snapchat_filter.png");
 	background-position: center center;
 	background-repeat: no-repeat;
-	background-size: contain;
-
-	width: 550px;
-	height: 1000px;
+	// background-size: contain;
 }
 
 .image-message {
@@ -135,6 +139,9 @@
     	margin-left: -33px;
     }
 }
+
+//Hamburger
+
 
 // Social Icons
 .social-icon {

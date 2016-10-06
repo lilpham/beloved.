@@ -1,9 +1,14 @@
 <h1>Account:</h1>
 
 <%= @user.name %>
+<br>
 <%= @user.fiance_name %>
+<br>
 <%= @user.email %>
+<br>
 <%= @user.wedding_date %>
+<br>
+<%= @user.phone_number %>
 
 <br>
 <%= link_to "Edit Account Information", edit_user_registration_path(current_user.name) %>

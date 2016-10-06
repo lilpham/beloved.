@@ -1,46 +1,145 @@
-<h1>Checklists</h1>
+<div class="container-fluid checklist-index">
+	<div class="row">
+	<!-- Row 1 -->
+		<div class="col-xs-12">
+			<h1>Checklists</h1>
+		</div>
+	</div>
 
-<% @checklists.each do |checklist| %>
-	<ul>
-	<%= link_to "#{checklist.title}", user_checklists_path(@user, checklist.id) %>
+	<div class="row">
+	<!-- Row 2 -->
+		<div class="col-xs-4">
+		</div>
 
-	<%= link_to 'Edit', edit_user_checklist_path(@user, checklist) %> 
+		<div class="col-xs-6">
+				<!-- All Checklists --> 
+				<% @checklists.each do |checklist| %>
 
-	<%= link_to 'Delete', user_checklist_path(@user, checklist), method: :delete, data: { confirm: "Are you sure?" } %>
-	
-	<% checklist.tasks.order("deadline ASC").each do |task| %>
-		<li>
-	        <% if task.completed? %>	
-				<p style="opacity: 0.5;" class="task-title"><strike> 
-				<%= task.name %>
-				<%= task.deadline.strftime("%m/%d/%Y") %>
-				</strike></p>git 
-				<p style="opacity: 0.5;" class="time-created-at task-sub-title">Completed <%= time_ago_in_words(task.completed_at) %> ago</p>
+					<div class="checklist">
 
-				<%= link_to 'Delete Task', user_checklist_task_path(@user, checklist, task), method: :delete, data: { confirm: "Are you sure?" } %>
-			<% else %>
-				<%= task.name %>
-				<%= task.deadline.strftime("%m/%d/%Y") %>
+					<h4><%= link_to "#{checklist.title}", user_checklists_path(@user, checklist) %>
+					</h4>
+						<!-- Button trigger modal -->
+								<span class="glyphicon glyphicon-pencil" id="checklist-pencil" data-task-id="<%=checklist.id%>" data-toggle="modal" data-target="#editChecklist_<%=checklist.id%>">
+								</span>
+								
+								<div class="modal fade" id="editChecklist_<%=checklist.id%>">
+								  <div class="modal-dialog" role="document">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								          <span aria-hidden="true">&times;</span>
+								        </button>
+								        <h4 class="modal-title">Edit Checklist</h4>
+								      </div>
+								      <div class="modal-body">
+											<form method="post" action="/users/<%=@user.id%>/checklists/<%=checklist.id%>">
+												<label>Name:</label>
+												<input type="text" name="checklist[title]"> 
+												<button class="btn btn-info">Save</button>
 
-				<%= link_to "Mark As Complete", complete_user_checklist_task_path(@user,checklist,task), method: :patch %>
-			
-				<%= link_to 'Edit Task', edit_user_checklist_task_path(@user, checklist, task) %>
+												<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+												<input name="_method" type="hidden" value="put" />
+											</form>
+										</div>
+								    </div><!-- /.modal-content -->
+								  </div><!-- /.modal-dialog -->
+								</div><!-- /.modal --> 
 
-				<%= link_to 'Delete Task', user_checklist_task_path(@user, checklist, task), method: :delete, data: { confirm: "Are you sure?" } %>
-			<% end %>
-		
-		</li>
+					<%= link_to user_checklist_path(@user, checklist), method: :delete, data: { confirm: "Are you sure?" } do %>
+						<span class="glyphicon glyphicon-trash" id="checklist-trash"></span>
+						<% end %>
+				
+						<% checklist.tasks.order("deadline ASC").each do |task| %>
+							<li>
+								<% if task.completed? %>	
+								<p style="opacity: 0.5;" class="task-title"><strike> 
+								<p><%= task.name %>
+								<%= task.deadline.strftime("%m/%d/%Y") %>
+								</p>
+								</strike></p> 
+								<p style="opacity: 0.5;" class="time-created-at task-sub-title">Completed <%= time_ago_in_words(task.completed_at) %> ago</p>
 
-	<% end %>
-		<%= link_to 'Add Task', new_user_checklist_task_path(@user.id, @checklist.id) %> 
+								<%= link_to user_checklist_task_path(@user, checklist, task), method: :delete, data: { confirm: "Are you sure?" } do %>
+									<span class="glyphicon glyphicon-trash"></span>
+								<% end %>
+							<% else %>
+								<p><%= task.name %>
+								<%= task.deadline.strftime("%m/%d/%Y") %>
+								</p>
 
-	<%= render '/tasks/taskform' %>
-	</ul>
+								<%= link_to complete_user_checklist_task_path(@user,checklist,task), method: :patch do %>
+									<span class="glyphicon glyphicon-ok"></span>
+								<% end %>
 
-<% end %>
-<br>
+								<!-- Button trigger modal -->
+								<span class="glyphicon glyphicon-pencil" data-task-id="<%=task.id%>" data-toggle="modal" data-target="#editTask_<%=task.id%>">
+								</span>
+								
+								<div class="modal fade" id="editTask_<%=task.id%>">
+								  <div class="modal-dialog" role="document">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								          <span aria-hidden="true">&times;</span>
+								        </button>
+								        <h4 class="modal-title">Edit Task</h4>
+								      </div>
+								      <div class="modal-body">
+											<form method="post" action="/users/<%=@user.id%>/checklists/<%=checklist.id%>/tasks/<%=task.id%>">
+												<label>Name:</label>
+												<input type="text" name="task[name]"> 
+												<label>Deadline:</label>
+												<input type="date" name="task[deadline]" > 
+												<button class="btn btn-info">Save</button>
+
+												<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+												<input name="_method" type="hidden" value="put" />
+											</form>
+										</div>
+								    </div><!-- /.modal-content -->
+								  </div><!-- /.modal-dialog -->
+								</div><!-- /.modal -->
+
+								<%= link_to user_checklist_task_path(@user, checklist, task), method: :delete, data: { confirm: "Are you sure?" } do %>
+									<span class="glyphicon glyphicon-trash"></span>
+								<% end %>	
+							<% end %>
+							</li>
+						<% end %>
+						</div>
+				<% end %>
+					<!-- Button trigger modal -->
+				<span class="glyphicon glyphicon-plus" id="checklist-plus"data-checklist-id="<%=@checklist.id%>" data-toggle="modal" data-target="#addTask_<%=@checklist.id%>">
+				</span>
+				
+			<div class="modal fade" id="addTask_<%=@checklist.id%>">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			        <h4 class="modal-title">Add Task</h4>
+			      </div>
+			      <div class="modal-body">
+						<%= render 'tasks/taskform' %>
+					</div>
+			    </div><!-- /.modal-content -->
+			  </div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->		
+		</div>
+
+		<div class="col-xs-4">
+		</div>
+	</div>
 
 
-<%= render 'checklistform' %>
-<br>
-<%= link_to "Create New Checklist", new_user_checklist_path %>
+	<div class="row">
+	<!-- Row 3 -->
+		<div class="col-xs-12">
+		<!-- Image with quote -->
+		</div>
+	</div>
+</div>
+

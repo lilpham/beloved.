@@ -125,6 +125,7 @@ p {
 .row2 {
 	padding-bottom: 60px;
 	padding-top: 68px;
+	margin-right: -28px;
 	h2 {
 		font-family: 'Playfair Display', serif;
 		font-weight: bold;
@@ -159,7 +160,12 @@ p {
 
 	}
 }
-
+.simple_calendar {
+	table {
+		max-width: 105%;
+		margin-left: -9px;
+	}
+}
 .today-start-date {
 	background: #ffbc9e;
 }
@@ -193,13 +199,16 @@ p {
 	border-color: #3C4646;
 	box-shadow: 10px 10px 0px 2px #f7dfd4;
 	padding: 20px;
-	margin-left: 165px;
+	margin-left: 160px;
+	padding-top: 20px;
+    padding-bottom: 8px;
 		h4 {
 			font-family: 'Open Sans', sans-serif;
 			text-align: center;
 			text-transform: uppercase;
 			letter-spacing: 1px;
 			margin-top: -8px;
+			margin-bottom: -20px;
 		}
 		a {
 			color: #706f6f;
@@ -211,7 +220,7 @@ p {
 		p {
 			text-transform: uppercase;
     		font-size: 13px;
-    		margin-bottom: -2px;
+    		margin-bottom: -6px;
     		margin-top: 8px;
 		}
 		.glyphicon-pencil,
@@ -246,53 +255,54 @@ p {
 }
 
 #thisweek-pencil {
-	position: absolute;
-	margin-right: 2px;
-	margin-left: 350px;
-	margin-top: 14px;
+	position: relative;
+	margin-right: -26px;
+    margin-left: 354px;
+    margin-top: 0px;
 }
 
 #thisweek-trash {
 	position: absolute;
 	margin-right: 4px;
-	margin-left: 370px;
-	margin-top: 14px;
+	margin-left: 34px;
+    margin-top: 16px;
 }
 
 #month-trash {
 	position: absolute;
 	margin-right : 4px;
-	margin-left: 370px;
-	margin-top: 14px;
+	margin-left: 8px;
+    margin-top: 15px;
 
 }
 
 #month-pencil {
-	position:absolute;
-	margin-left: 350px;
-	margin-top:14px;
+	position:relative;
+	margin-left: 355px;
 }
 
 #thisweek-plus {
 	position: relative;
-    margin-left: 371px;
+    margin-left: 364px;
     font-size: 14px;
     margin-top: 0px;
+    #thisweek-plus:hover {
+    	color: #ffbc9e;
+    }
 }
 
 #month-plus {
 	position: relative;
-    margin-left: 374px;
+    margin-left: 363px;
     margin-top: 0px;
     font-size: 14px;
+    #month-plus:hover {
+    	color: #ffbc9e;
+    }
 }
 
 // Row 4
 .row4 {
-	border-top: 2px;
-    border-style: solid;
-    border-width: thin;
-    border-bottom: none;
     background: #f2f2f2;
     position: relative;
 	height: 100%;
@@ -306,7 +316,7 @@ p {
 	border-style: solid;
     border-width: medium;
     padding-top: 12px;
-    padding-bottom: 12px;
+    padding-bottom: 18px;
     padding-right: 16px;
     padding-left: 16px;
 	h2 {

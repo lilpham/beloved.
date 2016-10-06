@@ -131,7 +131,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
   def user_params
     params.require(:user).permit(
-    :name, :fiance_name, :wedding_date, :password, :notifications,
+    :name, :fiance_name, :wedding_date, :password, :notifications, :phone_number
     )
   end 
 

@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   protected
   
   def setup_devise_parameters
-  	devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :fiance_name, :wedding_date, :notifications, :email])
+  	devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :fiance_name, :wedding_date, :notifications, :email, :phone_number])
   end
 
   def send_wedding_email

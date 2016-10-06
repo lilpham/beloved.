@@ -53,40 +53,42 @@ $(document).ready(function() {
 
 });
 
-// Image Carousel  
-$(document).ready(function() {
-  $("#owl-demo").owlCarousel({
- 
-      autoPlay: 3000, //Set AutoPlay to 3 seconds
- 
-      items : 4,
-      itemsDesktop : [1199,3],
-      itemsDesktopSmall : [979,3]
- 
-  });
- 
-});
 
 //snapchat filter
 
+// $(document).ready(function(){
+//  $('.message-submit-button').on('click', function(){
+// html2canvas($('.image-preview'), {
+//   onrendered: function(canvas) {
+//     var myImage = canvas.toDataURL('image/png');
+//     $('.lightbox').fadeIn(200);
+//     $('.new-image').attr('src', myImage).fadeIn(200);
+//   }
+// });
+// });
+
 $(document).ready(function(){
- $('.message-submit-button').on('click', function(){
-html2canvas($('.image-preview-wrap'), {
-  onrendered: function(canvas) {
-    var myImage = canvas.toDataURL('image/png');
-    $('.lightbox').fadeIn(200);
-    $('.new-image').attr('src', myImage).fadeIn(200);
-  }
+
+$('button').on('click', function(){
+	html2canvas($(".image-preview-wrap"), {
+    	onrendered: function(canvas) {
+       		var myImage = canvas.toDataURL("image/png");
+			$('.lightbox').fadeIn(200);
+			$('.new-image').attr('src', myImage).fadeIn(200);
+    	}
+	});
 });
-});
-$('.lightbox').css('display', 'none');
-});
-$('.message-box').keyup(
+
+// $('.lightbox').css('display');
+
+$('.custom-text').keyup(
 function(){
-  var value = $(this).val();
+	console.log("banana");
+  var value = $('.custom-text').val();
   $('.image-message').text(value);
-}
-);
+});
+});
+
 $('.message-form').submit(function(e){
 e.preventDefault;
 return false;
@@ -109,4 +111,23 @@ $.fn.scrollFun = function () {
 };
 $('.scroll').scrollFun();
 
-// Hamburger Menu
+// Checklist Collapse
+$('.collapse').on('click',function(e){
+  e.preventDefault();
+  $(this).toggleClass('active');
+});
+
+
+// Image Carousel  
+$(document).ready(function() {
+  $("#owl-demo").owlCarousel({
+ 
+      autoPlay: 3000, //Set AutoPlay to 3 seconds
+ 
+      items : 4,
+      itemsDesktop : [1199,3],
+      itemsDesktopSmall : [979,3]
+ 
+  });
+ 
+});
