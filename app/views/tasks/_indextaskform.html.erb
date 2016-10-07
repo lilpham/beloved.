@@ -1,0 +1,15 @@
+<%= form_for [@user, checklist.id, @task] do |f| %>
+ 	
+ 	<div>
+    <%= f.label :name %>
+    <%= f.text_field :name, placeholder: "Add task" %>
+ 	</div>
+
+	<div>
+    <%= f.label :deadline %>
+    <%= f.date_field :deadline %>
+	</div>
+
+    <%= f.submit %>
+
+<% end %>

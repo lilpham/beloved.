@@ -4,4 +4,50 @@
 
 .checklist-index {
 	padding-top: 85px;
+	margin-bottom: 36px;
+	margin-top: 40px;
+	height: 100%;
+	width: 100%;
+}
+
+.checklist-subhead {
+	font-family: 'Playfair Display', serif;
+	font-weight: bold;
+	letter-spacing: 14px;
+	font-size: 72px;
+}
+.row-checklist{
+	height: 100%;
+	width: 100%;
+}
+
+.checktext {
+	font-family: 'Playfair Display', serif;
+	font-weight: bold;
+	letter-spacing: 10px;
+    font-size: 140px;
+    margin-left: 86px;
+}
+
+.checksubtext {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: normal;
+    font-size: 176px;
+    text-transform: uppercase;
+    margin-top: -82px;
+    margin-left: 160px;
+}
+
+.c-index {
+	margin-left: -85px;
+}
+
+#index-plus {
+	position: relative;
+    margin-left: 570px;
+}
+
+#checklistindex-pencil {
+	margin-left: 363px;
+    position: relative;
 }

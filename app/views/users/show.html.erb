@@ -86,7 +86,7 @@
 	
 					<% if checklist.title == "This Week" %>
 			
-					<h4><%= link_to "#{checklist.title}", user_checklists_path(@user, checklist) %>
+					<h4><b><%= link_to "#{checklist.title}", user_checklists_path(@user, checklist) %></b>
 					</h4>
 
 						<!-- Button trigger modal -->
@@ -136,7 +136,7 @@
 							
 							<% else %>
 							
-								<p><%= task.name %>
+								<p><%= task.name %> -
 								<%= task.deadline.strftime("%m/%d/%Y") %>
 								</p>
 
@@ -210,7 +210,7 @@
 				<% @checklists.each do |checklist| %>
 					<% if checklist.title == Date.today.strftime("%B")%>
 
-					<h4><%= link_to "#{checklist.title}", user_checklists_path(@user, checklist) %>
+					<h4><b><%= link_to "#{checklist.title}", user_checklists_path(@user, checklist) %></b>
 					</h4>
 						<!-- Button trigger modal -->
 								<span class="glyphicon glyphicon-pencil" id="month-pencil" data-task-id="<%=checklist.id%>" data-toggle="modal" data-target="#editChecklist_<%=checklist.id%>">
@@ -257,9 +257,18 @@
 									<span class="glyphicon glyphicon-trash"></span>
 								<% end %>
 							<% else %>
-								<p><%= task.name %>
+								<% if task.urgent == true %>
+									<p><b><b><b><%= task.name %></b></b></b> -
+									<%= task.deadline.strftime("%m/%d/%Y") %>
+									</p>
+								<% else %>
+								<p><%= task.name %> -
 								<%= task.deadline.strftime("%m/%d/%Y") %>
 								</p>
+								<% end %>
+
+
+
 
 								<%= link_to complete_user_checklist_task_path(@user,checklist,task), method: :patch do %>
 									<span class="glyphicon glyphicon-ok"></span>
@@ -307,10 +316,10 @@
 			
 				<% end %>
 					<!-- Button trigger modal -->
-								<span class="glyphicon glyphicon-plus" id="month-plus"data-checklist-id="<%=@checklist.id%>" data-toggle="modal" data-target="#addTask_<%=@checklist.id%>">
+								<span class="glyphicon glyphicon-plus" id="month-plus" data-checklist-id="<%=@monthchecklist.id%>" data-toggle="modal" data-target="#addTask_<%=@monthchecklist.id%>">
 								</span>
 								
-								<div class="modal fade" id="addTask_<%=@checklist.id%>">
+								<div class="modal fade" id="addTask_<%=@monthchecklist.id%>">
 								  <div class="modal-dialog" role="document">
 								    <div class="modal-content">
 								      <div class="modal-header">
@@ -320,7 +329,7 @@
 								        <h4 class="modal-title">Add Task</h4>
 								      </div>
 								      <div class="modal-body">
-											<%= render 'tasks/taskform' %>
+											<%= render 'tasks/monthtaskform' %>
 										</div>
 								    </div><!-- /.modal-content -->
 								  </div><!-- /.modal-dialog -->

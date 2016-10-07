@@ -57,42 +57,31 @@ $(document).ready(function() {
 //snapchat filter
 
 // $(document).ready(function(){
-//  $('.message-submit-button').on('click', function(){
-// html2canvas($('.image-preview'), {
-//   onrendered: function(canvas) {
-//     var myImage = canvas.toDataURL('image/png');
-//     $('.lightbox').fadeIn(200);
-//     $('.new-image').attr('src', myImage).fadeIn(200);
-//   }
+
+// $('button').on('click', function(){
+// 	html2canvas($(".image-preview-wrap"), {
+//     	onrendered: function(canvas) {
+//        		var myImage = canvas.toDataURL("image/png");
+// 			$('.lightbox').fadeIn(200);
+// 			$('.new-image').attr('src', myImage).fadeIn(200);
+//     	}
+// 	});
+// });
+
+// // $('.lightbox').css('display');
+
+// $('.custom-text').keyup(
+// function(){
+// 	console.log("banana");
+//   var value = $('.custom-text').val();
+//   $('.image-message').text(value);
 // });
 // });
 
-$(document).ready(function(){
-
-$('button').on('click', function(){
-	html2canvas($(".image-preview-wrap"), {
-    	onrendered: function(canvas) {
-       		var myImage = canvas.toDataURL("image/png");
-			$('.lightbox').fadeIn(200);
-			$('.new-image').attr('src', myImage).fadeIn(200);
-    	}
-	});
-});
-
-// $('.lightbox').css('display');
-
-$('.custom-text').keyup(
-function(){
-	console.log("banana");
-  var value = $('.custom-text').val();
-  $('.image-message').text(value);
-});
-});
-
-$('.message-form').submit(function(e){
-e.preventDefault;
-return false;
-});
+// $('.message-form').submit(function(e){
+// e.preventDefault;
+// return false;
+// });
 
 // MightyScroll Mastheader
 $.fn.scrollFun = function () {
@@ -111,11 +100,6 @@ $.fn.scrollFun = function () {
 };
 $('.scroll').scrollFun();
 
-// Checklist Collapse
-$('.collapse').on('click',function(e){
-  e.preventDefault();
-  $(this).toggleClass('active');
-});
 
 
 // Image Carousel  
