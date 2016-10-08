@@ -27,7 +27,7 @@ class GuestsController < ApplicationController
 			flash[:notice] = "guest has been saved!"
 
 			if user_signed_in?
-				redirect_to user_guests_path(@user)
+				redirect_to :back
 			else
 				redirect_to user_thankyou_path(@user)
 			end
@@ -49,7 +49,7 @@ class GuestsController < ApplicationController
 
 		if @guest.update(guest_params)
 			flash[:notice] = "guest successfully updated!"
-			redirect_to user_guests_path
+			redirect_to :back
 		else
 			flash[:alert] = "Please fill text fields with characters"
 			render :edit 
@@ -61,7 +61,7 @@ class GuestsController < ApplicationController
 		guest = Guest.find(params[:id])
 		if guest.destroy
 			flash[:notice] = "guest deleted"
-			redirect_to user_guests_path
+			redirect_to :back
 		end
 	end 
 
@@ -83,7 +83,9 @@ class GuestsController < ApplicationController
 	def guest_params
 		params.require(:guest).permit(
 			:first_name, :last_name, 
-			:phone_number, :address
+			:phone_number, :address_1,
+			 :address_2, :city, :state,
+			 :zipcode, :party_name,
 			)
 		
 	end

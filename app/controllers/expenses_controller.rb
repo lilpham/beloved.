@@ -14,7 +14,7 @@ class ExpensesController < ApplicationController
 		@videography_total = @user.total("Videography")
 		@music_total = @user.total("Music")
 		@catering_total = @user.total("Catering")
-		@flora_total = @user.total("Floral")
+		@floral_total = @user.total("Floral")
 		@dress_total = @user.total("Dress")
 		@decor_total = @user.total("Decor")
 		@misc_total = @user.total("Misc")
@@ -43,7 +43,7 @@ class ExpensesController < ApplicationController
 
 		if @expense.save
 			flash[:notice] = "expense successfully created!"
-			redirect_to user_expenses_path(@user)
+			redirect_to :back
 		else
 			flash[:alert] = "Please fill text fields with characters"
 			render :new
@@ -62,7 +62,7 @@ class ExpensesController < ApplicationController
 
 		if @expense.update(expense_params)
 			flash[:notice] = "expense successfully updated!"
-			redirect_to user_expenses_path
+			redirect_to :back
 		else
 			flash[:alert] = "Please fill text fields with characters"
 			render :edit
@@ -74,7 +74,7 @@ class ExpensesController < ApplicationController
 		expense = Expense.find(params[:id])
 		if expense.destroy
 			flash[:notice] = "checklist deleted"
-			redirect_to user_expenses_path
+			redirect_to :back
 		end
 	end
 	

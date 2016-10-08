@@ -25,7 +25,7 @@ class ChecklistsController < ApplicationController
 
 		if @checklist.save
 			flash[:notice] = "checklist successfully created!"
-			redirect_to ("/users/#{@user.id}/checklists/#{@checklist.id}")
+			redirect_to :back
 		else
 			flash[:alert] = "Please fill text fields with characters"
 			render :new

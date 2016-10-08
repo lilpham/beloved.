@@ -1,175 +1,756 @@
-<h1>Budgeter</h1>
+<div class="container-fluid" id="budgeter">
+	<!-- Row 1 -->
+	<div class="row">
+		<div class="col-xs-12">
+			<h1>Budgeter</h1>
+			<hr class="style1">
+		</div>
+	</div>
 
-<div>
-	<form>
-		<b>
-		<input class ="js-budget" input type="number" placeholder="Set your budget">
-		<button class="js-add-budget">Set</button>
-	</form>
-</div>
+	<!-- Row 2 -->
+	<div class="row">
+		<div class="col-xs-6">
+			<form>
+				<b>
+				<input class ="js-budget" input type="number" 
+				placeholder="Set your budget">
+				<button class="js-add-budget btn btn-info">Set</button>
+				</b>
+			</form>
+		</div>
 
-<h4>Total Cost:</h4> 
-	<div class="js-grand-total">
-		<%= @grand_total %>
+		<div class="col-xs-6">
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary btn-sm addExpensebtn" data-toggle="modal" data-target="#addExpense">
+			  Add Expense
+			</button>
+
+			<!-- Modal -->
+			<div class="modal fade" id="addExpense">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title expense-title">Add Expense</h4>
+			      </div>
+			      <div class="modal-body">
+			        <%= render '/expenses/expenseform' %>
+			      </div>
+			    </div><!-- /.modal-content -->
+			  </div><!-- /.modal-dialog -->
+			</div><!-- /.modal --> 
+		</div>
+	</div>
+	
+	<div class="spreadsheet">
+	<!-- Row: Ceremony -->
+	<div class="row">
+		<div class="col-xs-3">
+			<h4>Ceremony</h4>
+		</div>
+		<div class="col-xs-3">
+			<h5>notes</h5>
+		</div>
+		<div class="col-xs-3">
+			<h5>who paid?</h5>
+		</div>
+		<div class="col-xs-3">
+			<h5>total <b> $<%= @ceremony_total %></h5></b>
+		</div>
+	</div>
+	
+	<div class="row expense">
+		<div class="col-xs-3" id="info">
+			<% @expenses.each do |expense| %>
+				<% if expense.category == "Ceremony" %>
+				<%= expense.name %>
+
+				<!-- Button trigger modal -->
+					<span class="glyphicon glyphicon-pencil" id="edit-expense"data-task-id="<%=expense.id%>" data-toggle="modal" data-target="#editExpense_<%=expense.id%>">
+					</span>
+					
+					<div class="modal fade" id="editExpense_<%=expense.id%>">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					          <span aria-hidden="true">&times;</span>
+					        </button>
+					        <h4 class="modal-title" id="modal-title">Edit Expense</h4>
+					      </div>
+					      <div class="modal-body">
+					      	
+							<form method="post" action="/users/<%=@user.id%>/expenses/<%=expense.id%>">
+								<label>Name:</label>
+								<input type="text" name="expense[name]"> 
+								<label>Notes:</label>
+								<input type="text" name="expense[notes]">  
+								<br><label>Payer:</label>
+								<input type="text" name="expense[payer]">   
+								<label>Cost:</label>
+								<input type="text" name="expense[cost]"> 
+								<button class="btn btn-info">Save</button>
+
+								<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+								<input name="_method" type="hidden" value="put" />
+							</form>
+							
+					    	</div><!-- /.modal-content -->
+					    </div>
+					  </div><!-- /.modal-dialog -->
+					</div><!-- /.modal --> 
+
+				<%= link_to user_expense_path(@user,expense), method: :delete, data: { confirm: "Are you sure?" } do %>
+					<span class="glyphicon glyphicon-trash" id="delete-expense"></span>
+				<% end %>
+
+		</div>
+
+		<div class="col-xs-3" id="info2">
+			<%= expense.description %>
+		</div>
+
+		<div class="col-xs-3" id="info3">
+				<%= expense.payer %>
+		</div>
+
+		<div class="col-xs-3" id="info4">
+				$<%= expense.cost %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+	
+	<!-- Row: Reception -->
+	<div class="row">
+		<div class="col-xs-3">
+			<h4>Reception</h4>
+		</div>
+		<div class="col-xs-3">
+			
+		</div>
+		<div class="col-xs-3">
+		</div>
+		<div class="col-xs-3">
+			<h5>total <b> $<%= @reception_total %></h5></b>
+		</div>
+	</div>
+	
+	<div class="row expense">
+		<div class="col-xs-3">			
+			<% @expenses.each do |expense| %>
+				<% if expense.category == "Reception" %>
+				<%= expense.name %>
+
+				<!-- Button trigger modal -->
+					<span class="glyphicon glyphicon-pencil" id="edit-expense"data-task-id="<%=expense.id%>" data-toggle="modal" data-target="#editExpense_<%=expense.id%>">
+					</span>
+					
+					<div class="modal fade" id="editExpense_<%=expense.id%>">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					          <span aria-hidden="true">&times;</span>
+					        </button>
+					        <h4 class="modal-title" id="modal-title">Edit Expense</h4>
+					      </div>
+					      <div class="modal-body">
+					      	
+							<form method="post" action="/users/<%=@user.id%>/expenses/<%=expense.id%>">
+								<label>Name:</label>
+								<input type="text" name="expense[name]"> 
+								<label>Notes:</label>
+								<input type="text" name="expense[notes]">  
+								<br><label>Payer:</label>
+								<input type="text" name="expense[payer]">   
+								<label>Cost:</label>
+								<input type="text" name="expense[cost]"> 
+								<button class="btn btn-info">Save</button>
+
+								<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+								<input name="_method" type="hidden" value="put" />
+							</form>
+							
+					    	</div><!-- /.modal-content -->
+					    </div>
+					  </div><!-- /.modal-dialog -->
+					</div><!-- /.modal --> 
+				<%= link_to user_expense_path(@user,expense), method: :delete, data: { confirm: "Are you sure?" } do %>
+					<span class="glyphicon glyphicon-trash" id="delete-expense"></span>
+				<% end %>
+		</div>
+
+		<div class="col-xs-3" id="info2">
+			<%= expense.description %>
+		</div>
+
+		<div class="col-xs-3" id="info3">
+				<%= expense.payer %>
+		</div>
+
+		<div class="col-xs-3" id="info4">
+				$<%= expense.cost %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+
+	<!-- Row: Photography -->
+	<div class="row">
+		<div class="col-xs-3">
+			<h4>Photography</h4>
+		</div>
+		<div class="col-xs-3">
+			
+		</div>
+		<div class="col-xs-3">
+		</div>
+		<div class="col-xs-3">
+			<h5>total <b> $<%= @photography_total %></h5></b>
+		</div>
+	</div>
+	
+	<div class="row expense">
+		<div class="col-xs-3">			
+			<% @expenses.each do |expense| %>
+				<% if expense.category == "Photography" %>
+				<%= expense.name %>
+
+				<!-- Button trigger modal -->
+					<span class="glyphicon glyphicon-pencil" id="edit-expense"data-task-id="<%=expense.id%>" data-toggle="modal" data-target="#editExpense_<%=expense.id%>">
+					</span>
+					
+					<div class="modal fade" id="editExpense_<%=expense.id%>">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					          <span aria-hidden="true">&times;</span>
+					        </button>
+					        <h4 class="modal-title" id="modal-title">Edit Expense</h4>
+					      </div>
+					      <div class="modal-body">
+					      	
+							<form method="post" action="/users/<%=@user.id%>/expenses/<%=expense.id%>">
+								<label>Name:</label>
+								<input type="text" name="expense[name]"> 
+								<label>Notes:</label>
+								<input type="text" name="expense[notes]">  
+								<br><label>Payer:</label>
+								<input type="text" name="expense[payer]">   
+								<label>Cost:</label>
+								<input type="text" name="expense[cost]"> 
+								<button class="btn btn-info">Save</button>
+
+								<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+								<input name="_method" type="hidden" value="put" />
+							</form>
+							
+					    	</div><!-- /.modal-content -->
+					    </div>
+					  </div><!-- /.modal-dialog -->
+					</div><!-- /.modal --> 
+				<%= link_to user_expense_path(@user,expense), method: :delete, data: { confirm: "Are you sure?" } do %>
+					<span class="glyphicon glyphicon-trash" id="delete-expense"></span>
+				<% end %>
+		</div>
+
+		<div class="col-xs-3" id="info2">
+			<%= expense.description %>
+		</div>
+
+		<div class="col-xs-3" id="info3">
+				<%= expense.payer %>
+		</div>
+
+		<div class="col-xs-3" id="info4">
+				$<%= expense.cost %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+
+	<!-- Row: Videography -->
+	<div class="row">
+		<div class="col-xs-3">
+			<h4>Videography</h4>
+		</div>
+		<div class="col-xs-3">
+			
+		</div>
+		<div class="col-xs-3">
+		</div>
+		<div class="col-xs-3">
+			<h5>total <b> $<%= @photography_total %></h5></b>
+		</div>
+	</div>
+	
+	<div class="row expense">
+		<div class="col-xs-3">			
+			<% @expenses.each do |expense| %>
+				<% if expense.category == "Videography" %>
+				<%= expense.name %>
+
+				<!-- Button trigger modal -->
+					<span class="glyphicon glyphicon-pencil" id="edit-expense"data-task-id="<%=expense.id%>" data-toggle="modal" data-target="#editExpense_<%=expense.id%>">
+					</span>
+					
+					<div class="modal fade" id="editExpense_<%=expense.id%>">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					          <span aria-hidden="true">&times;</span>
+					        </button>
+					        <h4 class="modal-title" id="modal-title">Edit Expense</h4>
+					      </div>
+					      <div class="modal-body">
+					      	
+							<form method="post" action="/users/<%=@user.id%>/expenses/<%=expense.id%>">
+								<label>Name:</label>
+								<input type="text" name="expense[name]"> 
+								<label>Notes:</label>
+								<input type="text" name="expense[notes]">  
+								<br><label>Payer:</label>
+								<input type="text" name="expense[payer]">   
+								<label>Cost:</label>
+								<input type="text" name="expense[cost]"> 
+								<button class="btn btn-info">Save</button>
+
+								<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+								<input name="_method" type="hidden" value="put" />
+							</form>
+							
+					    	</div><!-- /.modal-content -->
+					    </div>
+					  </div><!-- /.modal-dialog -->
+					</div><!-- /.modal --> 
+				<%= link_to user_expense_path(@user,expense), method: :delete, data: { confirm: "Are you sure?" } do %>
+					<span class="glyphicon glyphicon-trash" id="delete-expense"></span>
+				<% end %>
+		</div>
+
+		<div class="col-xs-3" id="info2">
+			<%= expense.description %>
+		</div>
+
+		<div class="col-xs-3" id="info3">
+				<%= expense.payer %>
+		</div>
+
+		<div class="col-xs-3" id="info4">
+				$<%= expense.cost %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+
+	<!-- Row: Music -->
+	<div class="row">
+		<div class="col-xs-3">
+			<h4>Music</h4>
+		</div>
+		<div class="col-xs-3">
+			
+		</div>
+		<div class="col-xs-3">
+		</div>
+		<div class="col-xs-3">
+			<h5>total <b> $<%= @music_total %></h5></b>
+		</div>
+	</div>
+	
+	<div class="row expense">
+		<div class="col-xs-3">			
+			<% @expenses.each do |expense| %>
+				<% if expense.category == "Music" %>
+				<%= expense.name %>
+
+				<!-- Button trigger modal -->
+					<span class="glyphicon glyphicon-pencil" id="edit-expense"data-task-id="<%=expense.id%>" data-toggle="modal" data-target="#editExpense_<%=expense.id%>">
+					</span>
+					
+					<div class="modal fade" id="editExpense_<%=expense.id%>">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					          <span aria-hidden="true">&times;</span>
+					        </button>
+					        <h4 class="modal-title" id="modal-title">Edit Expense</h4>
+					      </div>
+					      <div class="modal-body">
+					      	
+							<form method="post" action="/users/<%=@user.id%>/expenses/<%=expense.id%>">
+								<label>Name:</label>
+								<input type="text" name="expense[name]"> 
+								<label>Notes:</label>
+								<input type="text" name="expense[notes]">  
+								<br><label>Payer:</label>
+								<input type="text" name="expense[payer]">   
+								<label>Cost:</label>
+								<input type="text" name="expense[cost]"> 
+								<button class="btn btn-info">Save</button>
+
+								<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+								<input name="_method" type="hidden" value="put" />
+							</form>
+							
+					    	</div><!-- /.modal-content -->
+					    </div>
+					  </div><!-- /.modal-dialog -->
+					</div><!-- /.modal --> 
+				<%= link_to user_expense_path(@user,expense), method: :delete, data: { confirm: "Are you sure?" } do %>
+					<span class="glyphicon glyphicon-trash" id="delete-expense"></span>
+				<% end %>
+		</div>
+
+		<div class="col-xs-3" id="info2">
+			<%= expense.description %>
+		</div>
+
+		<div class="col-xs-3" id="info3">
+				<%= expense.payer %>
+		</div>
+
+		<div class="col-xs-3" id="info4">
+				$<%= expense.cost %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+
+	<!-- Row: Catering -->
+	<div class="row">
+		<div class="col-xs-3">
+			<h4>Catering</h4>
+		</div>
+		<div class="col-xs-3">
+			
+		</div>
+		<div class="col-xs-3">
+		</div>
+		<div class="col-xs-3">
+			<h5>total <b> $<%= @catering_total %></h5></b>
+		</div>
+	</div>
+	
+	<div class="row expense">
+		<div class="col-xs-3">			
+			<% @expenses.each do |expense| %>
+				<% if expense.category == "Catering" %>
+				<%= expense.name %>
+
+				<!-- Button trigger modal -->
+					<span class="glyphicon glyphicon-pencil" id="edit-expense"data-task-id="<%=expense.id%>" data-toggle="modal" data-target="#editExpense_<%=expense.id%>">
+					</span>
+					
+					<div class="modal fade" id="editExpense_<%=expense.id%>">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					          <span aria-hidden="true">&times;</span>
+					        </button>
+					        <h4 class="modal-title" id="modal-title">Edit Expense</h4>
+					      </div>
+					      <div class="modal-body">
+					      	
+							<form method="post" action="/users/<%=@user.id%>/expenses/<%=expense.id%>">
+								<label>Name:</label>
+								<input type="text" name="expense[name]"> 
+								<label>Notes:</label>
+								<input type="text" name="expense[notes]">  
+								<br><label>Payer:</label>
+								<input type="text" name="expense[payer]">   
+								<label>Cost:</label>
+								<input type="text" name="expense[cost]"> 
+								<button class="btn btn-info">Save</button>
+
+								<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+								<input name="_method" type="hidden" value="put" />
+							</form>
+							
+					    	</div><!-- /.modal-content -->
+					    </div>
+					  </div><!-- /.modal-dialog -->
+					</div><!-- /.modal --> 
+				<%= link_to user_expense_path(@user,expense), method: :delete, data: { confirm: "Are you sure?" } do %>
+					<span class="glyphicon glyphicon-trash" id="delete-expense"></span>
+				<% end %>
+		</div>
+
+		<div class="col-xs-3" id="info2">
+			<%= expense.description %>
+		</div>
+
+		<div class="col-xs-3" id="info3">
+				<%= expense.payer %>
+		</div>
+
+		<div class="col-xs-3" id="info4">
+				$<%= expense.cost %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+
+	<!-- Row: Floral -->
+	<div class="row">
+		<div class="col-xs-3">
+			<h4>Floral</h4>
+		</div>
+		<div class="col-xs-3">
+			
+		</div>
+		<div class="col-xs-3">
+		</div>
+		<div class="col-xs-3">
+			<h5>total <b> $<%= @floral_total %></h5></b>
+		</div>
+	</div>
+	
+	<div class="row expense">
+		<div class="col-xs-3">			
+			<% @expenses.each do |expense| %>
+				<% if expense.category == "Floral" %>
+				<%= expense.name %>
+
+				<!-- Button trigger modal -->
+					<span class="glyphicon glyphicon-pencil" id="edit-expense"data-task-id="<%=expense.id%>" data-toggle="modal" data-target="#editExpense_<%=expense.id%>">
+					</span>
+					
+					<div class="modal fade" id="editExpense_<%=expense.id%>">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					          <span aria-hidden="true">&times;</span>
+					        </button>
+					        <h4 class="modal-title" id="modal-title">Edit Expense</h4>
+					      </div>
+					      <div class="modal-body">
+					      	
+							<form method="post" action="/users/<%=@user.id%>/expenses/<%=expense.id%>">
+								<label>Name:</label>
+								<input type="text" name="expense[name]"> 
+								<label>Notes:</label>
+								<input type="text" name="expense[notes]">  
+								<br><label>Payer:</label>
+								<input type="text" name="expense[payer]">   
+								<label>Cost:</label>
+								<input type="text" name="expense[cost]"> 
+								<button class="btn btn-info">Save</button>
+
+								<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+								<input name="_method" type="hidden" value="put" />
+							</form>
+							
+					    	</div><!-- /.modal-content -->
+					    </div>
+					  </div><!-- /.modal-dialog -->
+					</div><!-- /.modal --> 
+				<%= link_to user_expense_path(@user,expense), method: :delete, data: { confirm: "Are you sure?" } do %>
+					<span class="glyphicon glyphicon-trash" id="delete-expense"></span>
+				<% end %>
+		</div>
+
+		<div class="col-xs-3" id="info2">
+			<%= expense.description %>
+		</div>
+
+		<div class="col-xs-3" id="info3">
+				<%= expense.payer %>
+		</div>
+
+		<div class="col-xs-3" id="info4">
+				$<%= expense.cost %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+
+	<!-- Row: Dress -->
+	<div class="row">
+		<div class="col-xs-3">
+			<h4>Dress</h4>
+		</div>
+		<div class="col-xs-3">
+			
+		</div>
+		<div class="col-xs-3">
+		</div>
+		<div class="col-xs-3">
+			<h5>total <b> $<%= @dress_total %></h5></b>
+		</div>
+	</div>
+	
+	<div class="row expense">
+		<div class="col-xs-3">			
+			<% @expenses.each do |expense| %>
+				<% if expense.category == "Dress" %>
+				<%= expense.name %>
+
+				<!-- Button trigger modal -->
+					<span class="glyphicon glyphicon-pencil" id="edit-expense"data-task-id="<%=expense.id%>" data-toggle="modal" data-target="#editExpense_<%=expense.id%>">
+					</span>
+					
+					<div class="modal fade" id="editExpense_<%=expense.id%>">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					          <span aria-hidden="true">&times;</span>
+					        </button>
+					        <h4 class="modal-title" id="modal-title">Edit Expense</h4>
+					      </div>
+					      <div class="modal-body">
+					      	
+							<form method="post" action="/users/<%=@user.id%>/expenses/<%=expense.id%>">
+								<label>Name:</label>
+								<input type="text" name="expense[name]"> 
+								<label>Notes:</label>
+								<input type="text" name="expense[notes]">  
+								<br><label>Payer:</label>
+								<input type="text" name="expense[payer]">   
+								<label>Cost:</label>
+								<input type="text" name="expense[cost]"> 
+								<button class="btn btn-info">Save</button>
+
+								<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+								<input name="_method" type="hidden" value="put" />
+							</form>
+							
+					    	</div><!-- /.modal-content -->
+					    </div>
+					  </div><!-- /.modal-dialog -->
+					</div><!-- /.modal --> 
+				<%= link_to user_expense_path(@user,expense), method: :delete, data: { confirm: "Are you sure?" } do %>
+					<span class="glyphicon glyphicon-trash" id="delete-expense"></span>
+				<% end %>
+		</div>
+
+		<div class="col-xs-3" id="info2">
+			<%= expense.description %>
+		</div>
+
+		<div class="col-xs-3" id="info3">
+				<%= expense.payer %>
+		</div>
+
+		<div class="col-xs-3" id="info4">
+				$<%= expense.cost %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+
+	<!-- Row: Misc -->
+	<div class="row">
+		<div class="col-xs-3">
+			<h4>Misc</h4>
+		</div>
+		<div class="col-xs-3">
+			
+		</div>
+		<div class="col-xs-3">
+		</div>
+		<div class="col-xs-3">
+			<h5>total <b> $<%= @misc_total %></h5></b>
+		</div>
+	</div>
+	
+	<div class="row expense">
+		<div class="col-xs-3">			
+			<% @expenses.each do |expense| %>
+				<% if expense.category == "Misc" %>
+				<%= expense.name %>
+
+				<!-- Button trigger modal -->
+					<span class="glyphicon glyphicon-pencil" id="edit-expense"data-task-id="<%=expense.id%>" data-toggle="modal" data-target="#editExpense_<%=expense.id%>">
+					</span>
+					
+					<div class="modal fade" id="editExpense_<%=expense.id%>">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					          <span aria-hidden="true">&times;</span>
+					        </button>
+					        <h4 class="modal-title" id="modal-title">Edit Expense</h4>
+					      </div>
+					      <div class="modal-body">
+					      	
+							<form method="post" action="/users/<%=@user.id%>/expenses/<%=expense.id%>">
+								<label>Name:</label>
+								<input type="text" name="expense[name]"> 
+								<label>Notes:</label>
+								<input type="text" name="expense[notes]">  
+								<br><label>Payer:</label>
+								<input type="text" name="expense[payer]">   
+								<label>Cost:</label>
+								<input type="text" name="expense[cost]"> 
+								<button class="btn btn-info">Save</button>
+
+								<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+								<input name="_method" type="hidden" value="put" />
+							</form>
+							
+					    	</div><!-- /.modal-content -->
+					    </div>
+					  </div><!-- /.modal-dialog -->
+					</div><!-- /.modal --> 
+				<%= link_to user_expense_path(@user,expense), method: :delete, data: { confirm: "Are you sure?" } do %>
+					<span class="glyphicon glyphicon-trash" id="delete-expense"></span>
+				<% end %>
+		</div>
+
+		<div class="col-xs-3" id="info2">
+			<%= expense.description %>
+		</div>
+
+		<div class="col-xs-3" id="info3">
+				<%= expense.payer %>
+		</div>
+
+		<div class="col-xs-3" id="info4">
+				$<%= expense.cost %>
+				<% end %>
+			<% end %>
+		</div>
 	</div>
 
 
-<h4>Budget Left:</h4>
-<div>
-	<form>
-		<b>
-		<div class ="js-budget-left"> </div>
-	</form>
-</div>
+	<!-- Row: Grand Total -->
+	<div class="row grand-total">
+		<div class="col-xs-6">
+			<h4>Total Cost:</h4> 
+		</div>
 
-<h4>Ceremony</h4>
-<% @expenses.each do |expense| %>
-	<% if expense.category == "Ceremony" %>
-	<%= expense.name %>
-	<%= expense.description %>
-	<%= expense.payer %>
-	<%= expense.cost %>
+		<div class="col-xs-6">
+			<div class="js-grand-total">
+				<p><%= @grand_total %></p>
+			</div>
+		</div>
+	</div>
 
-	<%= link_to "Edit", edit_user_expense_path(@user,expense) %>
-	<%= link_to "Delete", user_expense_path(@user,expense), method: :delete, data: { confirm: "Are you sure?" } %>
-	<br>
-	<% end %>
-<% end %>
+	<!-- Row: Budget Left -->
+	<div class="row budget-left">
+		<div class="col-xs-6">
+			<h4>Budget Left:</h4>
+		</div>
 
-<%= @ceremony_total %>
+		<div class="col-xs-6">
+			<div>
+				<form>
+					<div class ="js-budget-left"> </div>
+				</form>
+			</div>
+		</div>
+	</div>
 
+	</div><!-- end of spreadsheet div -->
 
+</div><!-- end of container -->
 
-<h4>Reception</h4>
-<% @expenses.each do |expense| %>
-	<% if expense.category == "Reception" %>
-	<%= expense.name %>
-	<%= expense.description %>
-	<%= expense.payer %>
-	<%= expense.cost %>
-
-	<%= link_to "Edit", edit_user_expense_path(@user,expense) %>
-	<%= link_to "Delete", user_expense_path(@user,expense), method: :delete, data: { confirm: "Are you sure?" } %>
-	<br>
-	<% end %>
-<% end %>
-
-<%= @reception_total %>
-
-<h4>Photography</h4>
-<% @expenses.each do |expense| %>
-	<% if expense.category == "Photography" %>
-	<%= expense.name %>
-	<%= expense.description %>
-	<%= expense.payer %>
-	<%= expense.cost %>
-
-	<%= link_to "Edit", edit_user_expense_path(@user,expense) %>
-	<%= link_to "Delete", user_expense_path(@user,expense), method: :delete, data: { confirm: "Are you sure?" } %>
-	<br>
-	<% end %>
-<% end %>
-
-<%= @photography_total %>
-
-<h4>Videography</h4>
-<% @expenses.each do |expense| %>
-	<% if expense.category == "Videography" %>
-	<%= expense.name %>
-	<%= expense.description %>
-	<%= expense.payer %>
-	<%= expense.cost %>
-
-	<%= link_to "Edit", edit_user_expense_path(@user,expense) %>
-	<%= link_to "Delete", user_expense_path(@user,expense), method: :delete, data: { confirm: "Are you sure?" } %>
-	<br>
-	<% end %>
-<% end %>
-
-<%= @videography_total %>
-
-<h4>Music</h4>
-<% @expenses.each do |expense| %>
-	<% if expense.category == "Music" %>
-	<%= expense.name %>
-	<%= expense.description %>
-	<%= expense.payer %>
-	<%= expense.cost %>
-
-	<%= link_to "Edit", edit_user_expense_path(@user,expense) %>
-	<%= link_to "Delete", user_expense_path(@user,expense), method: :delete, data: { confirm: "Are you sure?" } %>
-	<br>
-	<% end %>
-<% end %>
-
-<%= @music_total %>
-
-<h4>Catering</h4>
-<% @expenses.each do |expense| %>
-	<% if expense.category == "Catering" %>
-	<%= expense.name %>
-	<%= expense.description %>
-	<%= expense.payer %>
-	<%= expense.cost %>
-
-	<%= link_to "Edit", edit_user_expense_path(@user,expense) %>
-	<%= link_to "Delete", user_expense_path(@user,expense), method: :delete, data: { confirm: "Are you sure?" } %>
-	<br>
-	<% end %>
-<% end %>
-
-<%= @catering_total %>
-
-<h4>Floral</h4>
-<% @expenses.each do |expense| %>
-	<% if expense.category == "Floral" %>
-	<%= expense.name %>
-	<%= expense.description %>
-	<%= expense.payer %>
-	<%= expense.cost %>
-
-	<%= link_to "Edit", edit_user_expense_path(@user,expense) %>
-	<%= link_to "Delete", user_expense_path(@user,expense), method: :delete, data: { confirm: "Are you sure?" } %>
-	<br>
-	<% end %>
-<% end %>
-
-<%= @floral_total %>
-
-<h4>Dress</h4>
-<% @expenses.each do |expense| %>
-	<% if expense.category == "Dress" %>
-	<%= expense.name %>
-	<%= expense.description %>
-	<%= expense.payer %>
-	<%= expense.cost %>
-
-	<%= link_to "Edit", edit_user_expense_path(@user,expense) %>
-	<%= link_to "Delete", user_expense_path(@user,expense), method: :delete, data: { confirm: "Are you sure?" } %>
-	<br>
-	<% end %>
-<% end %>
-
-<%= @dress_total %>
-
-<h4>Misc</h4>
-<% @expenses.each do |expense| %>
-	<% if expense.category == "Misc" %>
-	<%= expense.name %>
-	<%= expense.description %>
-	<%= expense.payer %>
-	<%= expense.cost %>
-
-	<%= link_to "Edit", edit_user_expense_path(@user,expense) %>
-	<%= link_to "Delete", user_expense_path(@user,expense), method: :delete, data: { confirm: "Are you sure?" } %>
-	<br>
-	<% end %>
-<% end %>
-
-<%= @misc_total %>
-
-<br>
-<br>
-<%= render 'expenseform' %>
-
-<%= link_to "Add Expense", new_user_expense_path %>

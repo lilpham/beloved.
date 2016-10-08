@@ -1,3 +1,195 @@
 // Place all the styles related to the expenses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#budgeter {
+	margin-top: 116px;
+	h1 {
+		font-family: 'Playfair Display', serif;
+	    letter-spacing: 6px;
+	    font-weight: bold;
+	    padding-bottom: 60px;
+	    font-size: 80px;
+	    text-align: center;
+	}
+	.style1 {
+		border-width: 1.5px;
+	    border-style: solid;
+	    margin-top: -44px;
+	    width: 85%;
+	}
+	h4{
+		font-family: 'Open Sans', sans-serif;
+		font-weight: normal;
+		text-transform: uppercase;
+		margin-top: 15px;
+		margin-left: -16px;
+	}
+	h5 {
+		font-family: 'Open Sans', sans-serif;
+		font-weight: normal;
+		text-transform: uppercase;
+	}
+	form {
+		margin-left: -93px;
+	    margin-top: 0px;
+	    margin-bottom: 45px;
+	}
+
+}
+
+.spreadsheet {
+	padding-left: 166px;
+}
+
+.js-budget {
+	margin-left: 186px;
+    border-style: solid;
+    padding: 10px;
+    color: #6c8b6c;
+    font-family: 'Open Sans', sans-serif;
+	font-weight: normal;
+	border-width: 3px;
+	margin-right: -8px;
+    padding-right: 38px;
+}
+.js-add-budget {
+	background-color: #fff;
+    color: #3c3838;
+    border-color: #a6c3a6;
+    border-width: 3px;
+    border-radius: 0px;
+    margin-left: -48px;
+    margin-bottom: 2px;
+    padding: 10px;
+    font-family: 'Open Sans', sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+.js-add-budget:hover {
+	color: #000
+}
+
+
+.categories {
+	margin-bottom: 2px;
+	h3 {
+		font-family: 'Playfair Display', serif;
+	    font-weight: bold;
+	}
+}
+
+.expense {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: normal;
+	padding-top: 2px;
+    padding-bottom: 2px;
+    border-style: solid;
+    margin-right: 161px;
+    border-width: 1px;
+    border-color: #81807f;
+
+    border-color: #3C4646;
+    box-shadow: 9px -9px 0px -3px #f7dfd4;
+
+    #modal-title {
+    	margin-left: 40px;
+    }
+    .modal-body {
+    	margin-left: 95px;
+    }
+}
+
+#info2 {
+	text-align: center;
+}
+
+#info3 {
+	text-align: center;
+}
+
+#info4 {
+	text-align: right;
+}
+
+.grand-total {
+	margin-top: 10px;
+	h4 {
+		font-weight: bold;
+	    color: #0f0e0e;
+	    letter-spacing: .5px;
+	}
+}
+
+.js-grand-total {
+	font-size: 18px;
+    margin-top: 14px;
+    margin-left: 300px;
+    position: relative;
+    font-weight: bold;
+}
+
+.budget-left {
+	margin-top: 0px;
+	padding-bottom: 40px;
+	h4 {
+		font-weight: bold;
+	    color: #0f0e0e;
+	    letter-spacing: .5px;
+	}
+}
+
+.js-budget-left {
+	margin-left: 386px;
+    position: relative;
+    font-size: 18px;
+    margin-top: 8px;
+}
+
+.addExpensebtn {
+	background-color: #fff;
+	color: #363636;
+    border-color: #363636;
+    border-radius: 2px;
+    box-shadow: 10px 10px 0px 0px #f7dfd4;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	background-color: #f7dfd4;
+	box-shadow: 10px 10px 0px 0px #f2f2f2;
+	position: relative;
+    margin-left: 371px;
+    margin-top: -4px;
+    padding: 10px;
+}
+
+.addExpensebtn:hover {
+	background-color: #fff;
+	color: #000;
+	text-decoration: none;
+}
+
+.expenseform {
+	margin-left: 150px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.expense-title {
+	text-align: center;
+}
+
+#delete-expense {
+	color: #656363;
+}
+
+#edit-expense {
+	padding-left: 8px;
+}
+#delete-expense:hover {
+	color: #f7dfd4;
+}
+

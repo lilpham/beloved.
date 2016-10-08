@@ -18,7 +18,7 @@
 //= require_tree .
 
 $(document).ready(function() {
-	$(".js-add-budget").on("click", setBudget, storeBudget);
+	$(".js-add-budget").on("click", setBudget);
 
 
 	var clip = new ZeroClipboard($("#d_clip_button"))
@@ -41,16 +41,7 @@ $(document).ready(function() {
 
 	$('.js-budget-left').text(budgetLeft)	
 	}
-
-	function storeBudget (theEvent) {
-	theEvent.preventDefault();
-
-	console.log("Store Budget Click");
-
-	var budget = $(".js-budget").val();
 		
-	}
-
 });
 
 

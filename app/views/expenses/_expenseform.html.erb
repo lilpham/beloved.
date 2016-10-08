@@ -1,3 +1,4 @@
+<div class="expenseform">
 <%= form_for [@user, @expense] do |f| %>
  	
  	<div>
@@ -27,6 +28,7 @@
     <%= f.number_field :cost %>
 	</div> 
 
-    <%= f.submit %>
+    <button class="btn btn-info">Add</button>
 
 <% end %>
+</div>

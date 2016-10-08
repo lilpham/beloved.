@@ -70,7 +70,7 @@ class TasksController < ApplicationController
 
 		end 
 
-		redirect_to url_for(:controller => :checklists, :action => :index)
+		redirect_to :back
 
 	end
 

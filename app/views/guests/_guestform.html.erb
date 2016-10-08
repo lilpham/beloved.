@@ -1,3 +1,4 @@
+<div class="form">
 <%= form_for [@user, @guest] do |f| %>
 	<div>
     <%= f.label :first_name %>
@@ -10,7 +11,7 @@
     </div>
 
 	<div>
-    <%= f.label :party_name %><i>(this will help you keep your guests organized)
+    <%= f.label :party_name %> <i>(this will help you keep your guests organized)</i>
     <%= f.text_field :party_name %>
  	</div>
 
@@ -25,7 +26,7 @@
     </div>
 
     <div>
-    <%= f.label :address_2, "Address Line 2" %><i>(Apartment, Suite, Unit, Building, etc.)
+    <%= f.label :address_2, "Address Line 2" %> <i>(Apartment, Suite, Unit, Building, etc.)</i>
     <%= f.text_field :address_2 %>
     </div>
 
@@ -40,9 +41,10 @@
     </div>
 
     <div>
-    <%= f.label :zipcode %>
+    <%= f.label :zipcode, "Zip Code" %> 
     <%= f.text_field :zipcode%>
 	</div>
 
-    <%= f.submit %>
+    <button class="btn btn-info">Add</button>
 <% end %>
+</div>

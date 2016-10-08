@@ -16,13 +16,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
       thisweek_checklist = Checklist.create!(
         title: "This Week",
-        description: "Goals to finish by Sunday!",
         user_id: current_user.id
         )
 
       checklist1 = Checklist.create!(
         title: "#{(current_user.wedding_date - 12.months).strftime("%B")}",
-        description: "Your big to-do's for this month! Let's get started!",
         user_id: current_user.id
         )
       
@@ -35,7 +33,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
       checklist2 = Checklist.create!(
         title: "#{(current_user.wedding_date - 10.months).strftime("%B")}",
-        description: "Your big to-do's for this month! Let's get started!",
         user_id: current_user.id
         )
       
@@ -49,7 +46,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
       checklist3 = Checklist.create!(
         title: "#{(current_user.wedding_date - 8.months).strftime("%B")}",
-        description: "You've got a lot this month, but you'll thank us later if you nail them down!",
         user_id: current_user.id
         )
       
@@ -63,7 +59,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
       checklist4 = Checklist.create!(
         title: "#{(current_user.wedding_date - 6.months).strftime("%B")}",
-        description: "You've got a lot this month, but you'll thank us later if you nail them down!",
         user_id: current_user.id
         )
       
@@ -75,7 +70,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
       checklist5 = Checklist.create!(
         title: "#{(current_user.wedding_date - 4.months).strftime("%B")}",
-        description: "You've got a lot this month, but you'll thank us later if you nail them down!",
         user_id: current_user.id
         )
       
@@ -88,7 +82,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
       checklist6 = Checklist.create!(
         title: "#{(current_user.wedding_date - 2.months).strftime("%B")}",
-        description: "You've got a lot this month, but you'll thank us later if you nail them down!",
         user_id: current_user.id
         )
       
@@ -100,7 +93,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
       checklist7 = Checklist.create!(
         title: "#{(current_user.wedding_date - 1.months).strftime("%B")}",
-        description: "You're almost there! We can't wait!",
         user_id: current_user.id
         )
       
@@ -111,7 +103,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
       checklist8 = Checklist.create!(
         title: "#{(current_user.wedding_date + 1.month).strftime("%B")}",
-        description: "You're almost there! We can't wait!",
         user_id: current_user.id
         )
       

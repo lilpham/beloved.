@@ -8,6 +8,26 @@
 		</div>
 
 		<div class="col-xs-6 c-index">
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary btn-sm addChecklistbtn" data-toggle="modal" data-target="#addChecklist">
+			  Add Checklist
+			</button>
+
+			<!-- Modal -->
+			<div class="modal fade" id="addChecklist">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title">Add A Checklist</h4>
+			      </div>
+			      <div class="modal-body">
+			        <%= render '/checklists/checklistform' %>
+			      </div>
+			    </div><!-- /.modal-content -->
+			  </div><!-- /.modal-dialog -->
+			</div><!-- /.modal --> 
+
 				<!-- All Checklists --> 
 				<% @checklists.each do |checklist| %>
 
@@ -18,7 +38,7 @@
 						<!-- Button trigger modal -->
 								<span class="glyphicon glyphicon-pencil" id="checklistindex-pencil" data-task-id="<%=checklist.id%>" data-toggle="modal" data-target="#editChecklist_<%=checklist.id%>">
 								</span>
-								
+								<!--Modal-->
 								<div class="modal fade" id="editChecklist_<%=checklist.id%>">
 								  <div class="modal-dialog" role="document">
 								    <div class="modal-content">
