@@ -103,10 +103,10 @@
   <div class="row guest-info" id="guest-info">
 
     <div class="col-xs-1">
+      <% @guests.each do |guest| %>
     </div>
 
     <div class="col-xs-1">
-      <% @guests.each do |guest| %>
       <%= guest.party_name %>
     </div>
    

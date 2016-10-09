@@ -403,4 +403,71 @@ p {
 	}
 }
 
+// CREATE PAGE
+.create {
+	.row1 {
+		padding-top: 100px;
+	}
+	h1 {
+		font-family: 'Playfair Display', serif;
+	    font-weight: bold;
+	    text-transform: uppercase;
+	    text-align: center;
+	}
+	.text1 {
+	    border-color: #3C4646;
+    	box-shadow: 13px 11px 0px 4px #f7dfd4;
+    	border-style: solid;
+    	border-width: 4px;
+    	padding-bottom: 25px;
+    	margin-bottom: 45px;
+    	letter-spacing: 5px;
+    	margin-top: 40px;
+	}
+	h3 {
+		font-family: 'Open Sans', sans-serif;
+		font-weight: bold;
+		text-transform: uppercase;
+		text-align: center;
+		padding-top: 50px;
+	}
 
+	h4, h5 {
+		font-family: 'Open Sans', sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+
+	}
+
+	.soon {
+		border-style: double;
+		border-width: 4px;
+		border-color: #000;
+		margin-left: -40px;
+    	margin-right: 116px;
+	}
+	#s1 {
+		padding-bottom: 74px;
+	}
+	#s2 {
+		padding-bottom: 60px;
+	}
+	#s3 {
+		padding-top: 30px;
+	    padding-bottom: 10px;
+	    margin-left: -35px;
+	    box-shadow: -16px -12px 0px -5px #d4f1f7;
+    	margin-top: 18px;
+	}
+	#s4 {
+		margin-top: 11px;
+	    margin-left: -46px;
+	    padding-bottom: 28px;
+	    box-shadow: 13px -9px 0px 1px #f5f7d4;
+  		margin-top: 30px;
+
+	}
+	.coming {
+		margin-top: 10px;
+	}
+}
