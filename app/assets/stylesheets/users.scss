@@ -471,3 +471,93 @@ p {
 		margin-top: 10px;
 	}
 }
+
+// SETTINGS 
+.settings {
+	.row1 {
+		padding-top: 100px;
+	}
+	h1 {
+		font-family: 'Playfair Display', serif;
+	    font-weight: bold;
+	    text-transform: uppercase;
+	    text-align: center;
+	    letter-spacing: 5px;
+	}
+	.style1 {
+		width: 80%;
+	}
+	.helpbtn, .actbtn {
+	    border-radius: 2px;
+	    font-family: 'Open Sans', sans-serif;
+	    font-size: 14px;
+		font-weight: bold;
+		text-align: center;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		background-color: #f7dfd4;
+		box-shadow: 10px 10px 0px 0px #f2f2f2;
+		border-color: #000;
+	}
+	.helpbtn:hover, .actbtn:hover {
+		background-color: #fff;
+		color: #000;
+		text-decoration: none;
+	}
+	.helpbtn {
+		margin-left: 174px;
+	}
+	.actbtn {
+		margin-left: 11px;
+	}
+	.modal-title {
+		font-family: 'Open Sans', sans-serif;
+	    font-size: 18px;
+		font-weight: bold;
+		text-align: center;
+		text-transform: uppercase;
+	}
+}
+
+//SETTINGS: ACCOUNT
+.account {
+	.row1 {
+		padding-top: 100px;
+	}
+	h1 {
+		font-family: 'Playfair Display', serif;
+	    font-weight: bold;
+	    text-transform: uppercase;
+	    text-align: center;
+	    letter-spacing: 5px;
+	}
+	.style1 {
+		width: 80%;
+	}
+	.btn {
+	    border-radius: 2px;
+	    font-family: 'Open Sans', sans-serif;
+	    font-size: 14px;
+		font-weight: bold;
+		text-align: center;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		background-color: #f7dfd4;
+		box-shadow: 10px 10px 0px 0px #f2f2f2;
+		border-color: #000;
+	}
+	.btn:hover{
+		background-color: #fff;
+		color: #000;
+		text-decoration: none;
+	}
+	h4 {
+		font-family: 'Open Sans', sans-serif;
+	    text-transform: uppercase;
+	}
+	p {
+		font-family: 'Open Sans', sans-serif;
+	    font-size: 14px;
+	}
+
+}

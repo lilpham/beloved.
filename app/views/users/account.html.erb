@@ -1,14 +1,51 @@
-<h1>Account:</h1>
+<div class="container-fluid account">
+	<div class="row row1">
+		<div class="col-xs-4">
+		</div>
+		<div class="col-xs-4">
+			<h1>Account:</h1>
+			<hr class="style1">
+		</div>
+		<div class="col-xs-4">
+		</div>
+	</div>
 
-<%= @user.name %>
-<br>
-<%= @user.fiance_name %>
-<br>
-<%= @user.email %>
-<br>
-<%= @user.wedding_date %>
-<br>
-<%= @user.phone_number %>
+	<div class="row">
+		<div class="col-xs-4">
+		</div>
+		<div class="col-xs-4 acct-info">
+			<h4>Name</h4>
+			<p><%= @user.name %></p>
+			<br>
+			<h4>Fiancé/Fiancée Name</h4>
+			<p><%= @user.fiance_name %></p>
+			<br>
+			<h4>Wedding Date</h4>
+			<p><%= @user.wedding_date.strftime("%b %d, %Y") %></p>
+			<br>
+			<h4>Email</h4>
+			<p><%= @user.email %></p>
+			<br>
+			<h4>Phone Number</h4>
+			<p><%= @user.phone_number %></p>
+			<br>
+		</div>
+		<div class="col-xs-4">
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-xs-4">
+		</div>
 
-<br>
-<%= link_to "Edit Account Information", edit_user_registration_path(current_user.name) %>
+		<div class="col-xs-4">
+			<%= link_to edit_user_registration_path(current_user.name) do %>
+				<button class="btn btn-primary btn-lg"> Edit Account Info </button>
+			<% end %>
+		</div>
+
+		<div class="col-xs-4">
+		</div>
+	</div>
+
+</div>
