@@ -350,20 +350,19 @@ p {
 .image-quote {
 	height: 100%;
 	width: 50%;
-    background-image: url("/images/bestisyet.JPG");
+    background-image: url("https://s3.amazonaws.com/belovedapp/bestisyet.JPG"); 
     background-size: cover;
     background-repeat: no-repeat;
     margin-left: 136px;
 }
 
-// Row 5
+// Row 5 TREAT
 .treat {
 	height: 50%;
-	// width: 100%;
-	// background-image: url("/images/IMG_2141.JPG");
-	// background-size: cover;
-	// background-repeat: no-repeat;
+
 }
+	
+
 // treat button applies to all pages
 .btn-treat {
 	background-color: rgba(255, 255, 255, 0.15);
@@ -387,7 +386,10 @@ p {
 
 }
 
-// Row 6
+// Row 6 BLOG
+.thumbnail {
+	border-style: none;
+}
 .blog-posts {
 	h3{
 		font-family: 'Playfair Display', serif;
@@ -407,6 +409,9 @@ p {
 	.btn:hover {
 		background-color: #f7dfd4;
 	}
+	.style1 {
+		width: 38%;
+	}
 }
 .blog{
 	h1 {
@@ -415,6 +420,7 @@ p {
 		letter-spacing: 6px;
 		text-transform: uppercase;
 		text-align: center;
+		padding-bottom: 4px;
 	}
 }
 
