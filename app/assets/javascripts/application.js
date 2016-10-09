@@ -24,9 +24,9 @@ $(document).ready(function() {
 	var clip = new ZeroClipboard($("#d_clip_button"))
 
 	$("#clear-test").on("click", function(){
-	$("#fe_text").val("localhost:3000/:user_id/hellofriend");
+	$("#fe_text").val("www.belovedapp.co/:user_id/hellofriend");
 	$("#testarea").val("");
-	$(".my_clip_button").data("clipboard-text", "localhost:3000/:user_id/hellofriend");
+	$(".my_clip_button").data("clipboard-text", "www.belovedapp.co/:user_id/hellofriend");
 
 	});
 

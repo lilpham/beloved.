@@ -17,7 +17,7 @@
 
     <div class="col-xs-3">
         <div class='guestform-link'>
-          <button class='my_clip_button btn btn-primary btn-lg' id="link-btn" data-clipboard-target='fe_text' data-clipboard-text="www.belovedapp.co/<%=@user.id%>/hellofriend" id='d_clip_button' title='Copy Link'>
+          <button class='my_clip_button btn btn-primary btn-lg'data-clipboard-target='fe_text' data-clipboard-text="www.belovedapp.co/<%=@user.id%>/hellofriend" id='d_clip_button' title='Copy Link'>
             <b>Copy Link</b>
           </button>
         </div>
@@ -61,7 +61,7 @@
 
 
   <!-- row: catgory titles -->
-  <div class="row">
+  <div class="row" id="categories">
     <div class="col-xs-1">
       <!-- empty -->
     </div>
@@ -93,7 +93,6 @@
       <h5>Zip Code</h5>
     </div>
     <div class="col-xs-1">
-      <h5>Notes</h5>
     </div>
     <div class="col-xs-1">
       <!-- empty -->
@@ -101,7 +100,7 @@
   </div>
 
   <!-- row: guest info -->
-  <div class="row" id="guest-info">
+  <div class="row guest-info" id="guest-info">
 
     <div class="col-xs-1">
     </div>
@@ -141,10 +140,7 @@
 
     <div class="col-xs-1">
       <%= guest.zipcode %>
-    </div>
 
-    <div class="col-xs-1">
-      <%= guest.notes %>
       <div class="edit-guest">
       <!-- Button trigger modal -->
           <span class="glyphicon glyphicon-pencil" id="edit-expense"data-task-id="<%=guest.id%>" data-toggle="modal" data-target="#editGuest_<%=guest.id%>">
@@ -193,21 +189,21 @@
               </div>
             </div><!-- /.modal-dialog -->
           </div><!-- /.modal --> 
-          </div>
 
       <%= link_to user_guest_path(@user, guest), method: :delete, data: { confirm: "Are you sure?" } do %>
         <span class="glyphicon glyphicon-trash" id="delete-expense"></span>
       <% end %>
+          </div>
+
+
+    </div>
+    
+   
+    <div class="col-xs-2">
+      
+    </div>
 
       <% end %>
-
-      </div>
-    </div>
-   
-    <div class="col-xs-1">
-      <!-- empty -->
-    </div>
-
   </div>
  
 

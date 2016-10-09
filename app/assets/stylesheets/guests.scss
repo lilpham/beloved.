@@ -83,7 +83,7 @@
 	}
 }
 
-#link-btn {
+.my_clip_button {
 	background-color: rgba(255, 255, 255, 0.15);
 	color: #363636;
     border-color: #363636;
@@ -98,7 +98,7 @@
     margin-top: 40px;
 }
 
-#link-btn:hover {
+.my_clip_button:hover {
 	background-color: #f7dfd4;
 	box-shadow: 10px 10px 0px 0px #f2f2f2;
 }
@@ -112,4 +112,102 @@
 	#modal-title {
 	    	margin-left: 40px;
 	    }
+	.glyphicon-pencil {
+		position: absolute;
+	    margin-left: 39px;
+	    margin-top: 2px;
+	}
+	.glyphicon-trash {
+		margin-left: 65px;
+	    margin-top: 3px;
+	    position: absolute;
+	}
 }
+
+#categories, #guest-info {
+	margin-left: 10px;
+}
+
+#c1 {
+	border-left-style: solid;
+    border-top-style: solid;
+    border-width: 1px;
+    border-bottom-style: solid;
+}
+
+#c2 {
+    border-top-style: solid;
+    border-width: 1px;
+    border-bottom-style: solid;
+
+}
+#c3 {
+    border-top-style: solid;
+    border-right-style: solid;
+    border-width: 1px;
+   	border-bottom-style: solid;
+}
+
+.guest-info {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: normal;
+	padding-top: 2px;
+    padding-bottom: 2px;
+    border-style: solid;
+    border-width: 1px;    
+
+	border-color: #3C4646;
+    box-shadow: 9px -9px 0px -3px #f7dfd4;
+}
+
+
+//User Guest Form 
+#send-guest-form {
+	margin-top: 100px;
+	h1 {
+		font-family: 'Playfair Display', serif;
+	    font-weight: normal;
+	    padding-bottom: 60px;
+	    text-align: center;
+
+	}
+
+	h4 {
+		font-family: 'Open Sans', sans-serif;
+		font-weight: normal;
+		text-transform: uppercase;
+		margin-top: -65px;
+    	text-align: center;
+    	margin-bottom: 20px;
+	}
+    
+
+	#theform {
+		border-style: solid;
+		border-width: 3px;
+		border-color: #3C4646;
+		box-shadow: 10px 10px 0px 2px #f7dfd4;
+		padding: 25px;
+
+		font-family: 'Open Sans', sans-serif;
+		font-weight: normal;
+		text-transform: uppercase;
+
+
+		.btn {
+			margin-top: 10px;
+		}
+	}
+
+	.extra {
+		margin-bottom: 20px;
+    	margin-top: 25px;
+    	p {
+    		font-family: 'Open Sans', sans-serif;
+			font-weight: normal;
+			text-align: center;
+    	}
+	}
+}
+
+

@@ -1,48 +1,79 @@
-<h1><%= @user.name%> and <%= @user.fiance_name %> are gettin' hitched and need your info! Just fill out the form below with tender loving care :) </h1>
-
-<%= form_for [@user, @guest] do |f| %> 
-	<div>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
- 	</div>
-
-	<div>
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
- 	</div>
-
-	<div>
-    <%= f.label :phone_number %>
-    <%= f.text_field :phone_number %>
- 	</div>
-
-	<div>
-    <%= f.label :address_1%>
-    <%= f.text_field :address_1 %>
+<div class="container-fluid" id="send-guest-form">
+    <div class="row">
+        <div class="col-xs-3">
+        </div>
+        <div class="col-xs-6">
+            <h1><%= @user.name%> and <%= @user.fiance_name %> are gettin' hitched and they need your info! 
+            
+            <hr class="style1">
+            </h1>
+            <h4>Just fill out the form below with tender loving care :) </h4>
+        </div>
+        <div class="col-xs-3">
+        </div>
     </div>
 
-    <div>
-    <%= f.label :address_2, "Address Line 2" %><i>(Apartment, Suite, Unit, Building, etc.)
-    <%= f.text_field :address_2 %>
+    <div class="row">
+        <div class="col-xs-4">
+        </div>
+        
+        
+        <div class="col-xs-4 form" id="theform">
+            <%= form_for [@user, @guest] do |f| %> 
+            	<div>
+                <%= f.label :first_name %><br>
+                <%= f.text_field :first_name %>
+             	</div>
+
+            	<div>
+                <%= f.label :last_name %><br>
+                <%= f.text_field :last_name %>
+             	</div>
+
+            	<div>
+                <%= f.label :phone_number %><br>
+                <%= f.text_field :phone_number %>
+             	</div>
+
+            	<div>
+                <%= f.label :address_1%><br>
+                <%= f.text_field :address_1 %>
+                </div>
+       
+                <div>
+                <%= f.label :address_2, "Address Line 2" %><br>
+                <%= f.text_field :address_2 %>
+                </div>
+
+                <div>
+                <%= f.label :city %><br>
+                <%= f.text_field :city %>
+                </div>
+
+                <div>
+                <%= f.label :state %><br>
+                <%= f.text_field :state%>
+                </div>
+
+                <div>
+                <%= f.label :zipcode %><br>
+                <%= f.text_field :zipcode%>
+                </div>
+
+                <button class="btn btn-info">Submit</button>
+
+            <% end %>
+        </div>
+
+        
+
+        <div class="col-xs-4">
+        </div>
     </div>
-
-    <div>
-    <%= f.label :city %>
-    <%= f.text_field :city %>
+    
+    <div class="row extra">
+        <div class="col-xs-12">
+            <p>Your information will only be shared with <%= @user.name %> and <%=@user.fiance_name%>.</p>
+        </div>
     </div>
-
-    <div>
-    <%= f.label :state %>
-    <%= f.text_field :state%>
-    </div>
-
-    <div>
-    <%= f.label :zipcode %>
-    <%= f.text_field :zipcode%>
-    </div>
-
-    <button class="btn btn-info">Submit</button>
-
-<% end %>
-
-<p>Your information won't be shared with anyone but <%= @user.name %> and <%=@user.fiance_name%>.</p>
+</div>
