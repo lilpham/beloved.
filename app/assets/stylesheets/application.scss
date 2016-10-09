@@ -21,6 +21,7 @@
 @import "checklists";
 @import "expenses";
 @import "guests";
+@import "sites";
 
 
 /*create page*/
@@ -119,7 +120,8 @@
     text-transform: uppercase;
     -webkit-box-shadow: 0 8px 6px -6px #999;
     -moz-box-shadow: 0 8px 6px -6px #999;
-    width: 95%;
+    width: 100%;
+    margin-left: 48px;
     a {
     	color: #6f6e6e;
     	padding: 15px;
@@ -136,8 +138,8 @@
     	color: #363636;
     }
     .navbar_brand, img {
-    	margin-top: -25px;
-    	margin-left: -11px;
+    	margin-top: -35px;
+    	margin-left: -33px;
     }
 }
 // Site Navbar 
@@ -176,4 +178,48 @@
 }
 .fa:hover {
 	color: #333;
+}
+
+// LOG IN 
+#log-in {
+	margin-top: 100px;
+	h2 {
+		font-family: 'Playfair Display', serif;
+	    font-weight: normal;
+	    padding-bottom: 60px;
+	    text-align: center;
+
+	}
+
+	h4 {
+		font-family: 'Open Sans', sans-serif;
+		font-weight: normal;
+		text-transform: uppercase;
+	}
+	.style1 {
+		margin-top: 0px;
+	}
+    
+
+	#login-form {
+		border-style: solid;
+		border-width: 3px;
+		border-color: #3C4646;
+		box-shadow: 10px 10px 0px 2px #f7dfd4;
+		padding: 25px;
+
+		font-family: 'Open Sans', sans-serif;
+		font-weight: normal;
+		text-transform: uppercase;
+
+		padding-left: 76px;
+
+		.btn {
+			margin-top: 10px;
+		}
+		.btn:hover {
+			border-color: #000; 
+			text-decoration: none;
+		}
+	}
 }

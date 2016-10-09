@@ -1,3 +1,40 @@
 // Place all the styles related to the sites controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//Home 
+.home {
+	padding-top: 40px;
+	video {
+		opacity: 0.7;
+	}
+
+}
+
+// About
+.about {
+	padding-top: 50px;
+	header {
+		background-image: url("/images/about2.jpg");
+		background-size: cover;
+		padding-bottom: 40vh;
+	    margin-top: -22px;
+	    opacity: 0.8;
+	    h1 {
+	    	font-size: 62px;
+    		color: #afafac;
+	    }
+	}
+	.text {
+		font-family: 'Playfair Display', serif;
+		font-weight: bold;
+		letter-spacing: 6px;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 100px;
+		color: #fff;
+		padding-top: 300px;
+
+
+	}
+}
