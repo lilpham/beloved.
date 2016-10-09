@@ -31,7 +31,7 @@
 				<!-- All Checklists --> 
 				<% @checklists.each do |checklist| %>
 
-					<div class="checklist">
+					<div class="checklist" id="index-of-checklists">
 						<h4><b><%= checklist.title %>
 						</b></h4>
 
@@ -129,10 +129,11 @@
 							<% end %>
 							</li>
 						<% end %>
-						</div>
+
 						<!-- Button trigger modal -->
-					<span class="glyphicon glyphicon-plus" id="index-plus"data-checklist-id="<%=checklist.id%>" data-toggle="modal" data-target="#addTask_<%=checklist.id%>">
-					</span>
+						<span class="glyphicon glyphicon-plus" id="index-plus"data-checklist-id="<%=checklist.id%>" data-toggle="modal" data-target="#addTask_<%=checklist.id%>">
+						</span>
+					</div>
 				
 				<div class="modal fade" id="addTask_<%=checklist.id%>">
 				  <div class="modal-dialog" role="document">

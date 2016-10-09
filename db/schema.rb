@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161007055029) do
+ActiveRecord::Schema.define(version: 20161009205256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 20161007055029) do
     t.datetime "updated_at",   null: false
     t.integer  "checklist_id"
     t.datetime "completed_at"
+    t.boolean  "automatic"
   end
 
   create_table "users", force: :cascade do |t|

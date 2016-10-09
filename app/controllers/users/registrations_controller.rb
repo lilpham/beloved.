@@ -25,9 +25,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
         )
       
       checklist1.tasks.create!([
-        {name:"Book reception venue", deadline: current_user.wedding_date - 12.months, urgent: true},
-        {name:"Book ceremony venue", deadline: current_user.wedding_date - 12.months, urgent: true},
-        {name:"Book officiant", deadline: current_user.wedding_date - 12.months, urgent: true},
+        {name:"Book reception venue", deadline: current_user.wedding_date - 12.months, urgent: true, automatically_created: true},
+        {name:"Book ceremony venue", deadline: current_user.wedding_date - 12.months, urgent: true, automatically_created: false},
+        {name:"Book officiant", deadline: current_user.wedding_date - 12.months, urgent: true, automatically_created: false},
         ])
 
 
@@ -37,11 +37,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
         )
       
       checklist2.tasks.create!([
-        {name:"Block out hotel rooms for guests", deadline: current_user.wedding_date - 10.months, urgent: true},
-        {name:"Choose wedding party! aka: your baes", deadline: current_user.wedding_date - 10.months, urgent: true},
-        {name:"Book photographer", deadline: current_user.wedding_date - 10.months, urgent: true},
-        {name:"Book videographer", deadline: current_user.wedding_date - 10.months, urgent: true},
-        {name:"Book caterer", deadline: current_user.wedding_date - 10.months, urgent: true},
+        {name:"Block out hotel rooms for guests", deadline: current_user.wedding_date - 10.months, urgent: true, automatically_created: true},
+        {name:"Choose wedding party! aka: your baes", deadline: current_user.wedding_date - 10.months, urgent: true, automatically_created: true},
+        {name:"Book photographer", deadline: current_user.wedding_date - 10.months, urgent: true, automatically_created: true},
+        {name:"Book videographer", deadline: current_user.wedding_date - 10.months, urgent: true, automatically_created: true},
+        {name:"Book caterer", deadline: current_user.wedding_date - 10.months, urgent: true, automatically_created: true},
         ])
 
       checklist3 = Checklist.create!(
@@ -50,11 +50,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
         )
       
       checklist3.tasks.create!([
-        {name:"Register for registry - woohoo! Gifts!", deadline: current_user.wedding_date - 8.months, urgent: true},
-        {name:"Go wedding dress shopping!", deadline: current_user.wedding_date - 8.months, urgent: true},
-        {name:"Look for Bridesmaids dresses(or let your bridesmaids pick their own!)", deadline: current_user.wedding_date - 8.months, urgent: true},
-        {name:"Book florist", deadline: current_user.wedding_date - 8.months, urgent: true},
-        {name:"Book band/dj for reception", deadline: current_user.wedding_date - 8.months, urgent: true},
+        {name:"Register for registry - woohoo! Gifts!", deadline: current_user.wedding_date - 8.months, urgent: true, automatically_created: true},
+        {name:"Go wedding dress shopping!", deadline: current_user.wedding_date - 8.months, urgent: true, automatically_created: true},
+        {name:"Look for Bridesmaids dresses(or let your bridesmaids pick their own!)", deadline: current_user.wedding_date - 8.months, urgent: true, automatically_created: true},
+        {name:"Book florist", deadline: current_user.wedding_date - 8.months, urgent: true, automatically_created: true},
+        {name:"Book band/dj for reception", deadline: current_user.wedding_date - 8.months, urgent: true, automatically_created: true},
         ])
 
       checklist4 = Checklist.create!(
@@ -63,9 +63,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
         )
       
       checklist4.tasks.create!([
-        {name:"Book your baker - cake time!", deadline: current_user.wedding_date - 6.months, urgent: true},
-        {name:"Send 'Save the Dates'", deadline: current_user.wedding_date - 6.months, urgent: true},
-        {name:"Book ceremony musicians or ask a friend to play for your ceremony!", deadline: current_user.wedding_date - 6.months, urgent: true},
+        {name:"Book your baker - cake time!", deadline: current_user.wedding_date - 6.months, urgent: true, automatically_created: true},
+        {name:"Send 'Save the Dates'", deadline: current_user.wedding_date - 6.months, urgent: true, automatically_created: true},
+        {name:"Book ceremony musicians or ask a friend to play for your ceremony!", deadline: current_user.wedding_date - 6.months, urgent: true, automatically_created: true},
         ])
 
       checklist5 = Checklist.create!(
@@ -74,10 +74,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
         )
       
       checklist5.tasks.create!([
-        {name:"Book rehearsal dinner venue", deadline: current_user.wedding_date - 4.months, urgent: true},
-        {name:"Book honeymoon (hello, paradise)", deadline: current_user.wedding_date - 4.months, urgent: true},
-        {name:"Rent/Purchase menswear attire", deadline: current_user.wedding_date - 4.months, urgent: true},
-        {name:"Order wedding bands", deadline: current_user.wedding_date - 4.months, urgent: true},
+        {name:"Book rehearsal dinner venue", deadline: current_user.wedding_date - 4.months, urgent: true, automatically_created: true},
+        {name:"Book honeymoon (hello, paradise)", deadline: current_user.wedding_date - 4.months, urgent: true, automatically_created: true},
+        {name:"Rent/Purchase menswear attire", deadline: current_user.wedding_date - 4.months, urgent: true, automatically_created: true},
+        {name:"Order wedding bands", deadline: current_user.wedding_date - 4.months, urgent: true, automatically_created: true},
         ])
 
       checklist6 = Checklist.create!(
@@ -86,9 +86,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
         )
       
       checklist6.tasks.create!([
-        {name:"Schedule make-up trial OR practice your make-up (if you're doing your own)", deadline: current_user.wedding_date - 2.months, urgent: true},
-        {name:"Schedule hair trial OR practice your hair (if you're doing your own)", deadline: current_user.wedding_date - 2.months, urgent: true},
-        {name:"Send formal invites (it's go time!)", deadline: current_user.wedding_date - 2.months, urgent: true},
+        {name:"Schedule make-up trial OR practice your make-up (if you're doing your own)", deadline: current_user.wedding_date - 2.months, urgent: true, automatically_created: true},
+        {name:"Schedule hair trial OR practice your hair (if you're doing your own)", deadline: current_user.wedding_date - 2.months, urgent: true, automatically_created: true},
+        {name:"Send formal invites (it's go time!)", deadline: current_user.wedding_date - 2.months, urgent: true, automatically_created: true},
         ])
 
       checklist7 = Checklist.create!(
@@ -97,8 +97,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
         )
       
       checklist7.tasks.create!([
-        {name:"Finalize ceremony program", deadline: current_user.wedding_date - 1.months, urgent: true},
-        {name:"Apply for marriage license", deadline: current_user.wedding_date - 1.months, urgent: true},
+        {name:"Finalize ceremony program", deadline: current_user.wedding_date - 1.months, urgent: true, automatically_created: true},
+        {name:"Apply for marriage license", deadline: current_user.wedding_date - 1.months, urgent: true, automatically_created: true},
         ])
 
       checklist8 = Checklist.create!(
@@ -107,8 +107,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
         )
       
       checklist8.tasks.create!([
-        {name:"Send thank you cards", deadline: current_user.wedding_date + 1.month, urgent: true},
-        {name:"Change your name", deadline: current_user.wedding_date + 1.month, urgent: true},
+        {name:"Send thank you cards", deadline: current_user.wedding_date + 1.month, urgent: true, automatically_created: true},
+        {name:"Change your name", deadline: current_user.wedding_date + 1.month, urgent: true, automatically_created: true},
         ])
      
 
