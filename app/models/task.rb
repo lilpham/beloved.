@@ -10,7 +10,7 @@ class Task < ApplicationRecord
 
 
 	def reminder
-    if automatic
+    if automatic == true
       puts "Skipping reminder..."
     else
       @user =  User.find(self.checklist.user_id)

@@ -71,7 +71,19 @@ class GuestsController < ApplicationController
 
 		flash[:alert] = "Please fill text fields with characters"
 		render :guest_input_form 
+		if @guest.save
+			flash[:notice] = "guest has been saved!"
 
+			if user_signed_in?
+				redirect_to :back
+			else
+				redirect_to user_thankyou_path(@user)
+			end
+		else
+			flash[:alert] = "Please fill text fields with characters"
+			render :new 
+		end
+		
 	end 
 
 	def thankyou
