@@ -144,8 +144,13 @@
 }
 // Site Navbar 
 .login {
-	margin-left: 500px;
-
+	margin-left: 288px;
+}
+.navbar-brand-site {
+	img {
+		margin-left: 458px;
+    	margin-top: -13px;	
+	}
 }
 
 //Buttons
@@ -186,7 +191,7 @@
 	h2 {
 		font-family: 'Playfair Display', serif;
 	    font-weight: normal;
-	    padding-bottom: 60px;
+	    padding-bottom: 2px;
 	    text-align: center;
 
 	}

@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 	end 
 
 	def treat
-		render :treat
+		@user = current_user
 	end 
 
 	def c

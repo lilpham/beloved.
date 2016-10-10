@@ -29,6 +29,7 @@ html, body,
     	width: 100%;
 	 		margin-top: 40px;
 	 		margin-left: 12px;
+	 		margin-top: 40px;
     }
     .row3 {
 		background: #ffd9c4;
@@ -47,14 +48,58 @@ html, body,
     		margin-top: 90px;
     	}
     }
-    #pictures {
+    #picture1, #picture2 {
     	img {
     		width: 80%;
+    		margin-top: -60px;
     	}
     }
+	#picture1 {
+		img {
+			margin-left: 100px;
+		}
+	}
+	#picture2 {
+		img {
+			margin-left: -16px;
+		}
+	}
     .row4 {
-    	height: 120%;
-    }
+    	height: 105%;
+    	h1{
+    	text-align: left;
+		font-family: 'Open Sans', sans-serif;
+		letter-spacing: 4px;
+		text-transform: uppercase;
+		margin-left: -127px;
+    	margin-top: -45px;
+    	font-size: 63px;
+    	font-weight: bold;
+    	}
+    	h3 {
+		text-align: left;
+		font-family: 'Open Sans', sans-serif;
+		letter-spacing: 4px;
+		text-transform: uppercase;
+		margin-left: -127px;
+    	font-weight: bold;
+    	margin-top: 175px;
+    	font-size: 55px;
+    	font-weight: bold;
+    	}
+	}
+	.row5 {
+		height: 100%;
+		margin-top: -40px;
+		.col-xs-12 {
+			height: 100%;
+
+		}
+		img {
+			width: 100%;
+			margin-left: -2px;
+		}
+	}
 }
 
 // About

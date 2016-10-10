@@ -131,6 +131,7 @@ p {
 	padding-bottom: 60px;
 	padding-top: 68px;
 	margin-right: -28px;
+	margin-bottom: 117px;
 	h2 {
 		font-family: 'Playfair Display', serif;
 		font-weight: bold;
@@ -353,7 +354,8 @@ p {
     background-image: url("https://s3.amazonaws.com/belovedapp/bestisyet.JPG"); 
     background-size: cover;
     background-repeat: no-repeat;
-    margin-left: 136px;
+    margin-left: 634px;
+
    
     margin-top: -648px;
     position: relative;
@@ -362,13 +364,14 @@ p {
 // Row 5 TREAT
 .treat {
 	height: 50%;
+	background-color: #d6f5f2;
 
 }
 	
 
 // treat button applies to all pages
 .btn-treat {
-	background-color: rgba(255, 255, 255, 0.15);
+	background-color: white;
 	color: #363636;
     border-color: #363636;
     border-radius: 2px;
@@ -585,3 +588,21 @@ p {
 	}
 
 }
+
+// TREAT
+.treat-page {
+	height: 100%;
+	margin-top: 40px;
+	.row1 {
+		height: 100%;
+		margin-top: -40px;
+		.col-xs-12 {
+			height: 100%;
+		}
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
+
