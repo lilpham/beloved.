@@ -22,6 +22,15 @@
 @import "expenses";
 @import "guests";
 @import "sites";
+// @font-face { font-family: Bromello; src: url('bromello.ttf
+// '); } 
+// @font-face { font-family: Bromello; font-weight: bold; src: url('bromello.ttf
+// ');}
+@font-face {
+    font-family: Bromello;
+    src: url(bromello.ttf);
+}
+
 
 
 /*create page*/
@@ -125,6 +134,7 @@
     a {
     	color: #6f6e6e;
     	padding: 15px;
+
     }
 	a:hover {
 		color: #363636;
@@ -147,13 +157,24 @@
 }
 // Site Navbar 
 .login {
-	margin-left: 232px;
+	// margin-left: 232px;
+	position: relative;
+	text-align: right;
+
 }
 .navbar-brand-site {
-	img {
-		margin-left: 548px;
-    	margin-top: 5px;	
+	h1 {
+		font-family: Bromello, sans-serif;
+		text-transform: lowercase;
+		letter-spacing: 1px;
+		font-size: 50px;
+		// margin-left: 548px;
+    	margin-top: 3px;	
+    	color: black;
+    	position: relative;
+    	text-align: center;
 	}
+
 }
 
 //Buttons
