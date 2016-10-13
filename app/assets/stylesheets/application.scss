@@ -203,6 +203,10 @@
 		font-family: 'Open Sans', sans-serif;
 		font-weight: normal;
 		text-transform: uppercase;
+		margin-bottom: -22px;
+	}
+	input {
+		margin-bottom: 10px;
 	}
 	.style1 {
 		margin-top: 0px;
@@ -221,6 +225,66 @@
 		text-transform: uppercase;
 
 		padding-left: 76px;
+
+		.btn {
+			margin-top: 10px;
+			margin-bottom: 15px;
+		}
+		.btn:hover {
+			border-color: #000; 
+			text-decoration: none;
+		}
+	}
+}
+// SIGN UP
+#sign-up {
+	margin-top: 100px;
+	h2 {
+		font-family: 'Playfair Display', serif;
+	    font-weight: normal;
+	    padding-bottom: 2px;
+	    text-align: center;
+
+	}
+	h4 {
+		font-family: 'Open Sans', sans-serif;
+		font-weight: normal;
+		text-transform: uppercase;
+		margin-bottom: 0px;
+
+	}
+	.style1 {
+		margin-top: 0px;
+	}
+    
+	#sign-up-form {
+		border-style: solid;
+		border-width: 3px;
+		border-color: #3C4646;
+		box-shadow: 10px 10px 0px 2px #f7dfd4;
+		padding: 25px;
+
+		font-family: 'Open Sans', sans-serif;
+		font-weight: normal;
+		text-transform: uppercase;
+
+		padding-left: 76px;
+		i {
+			margin-bottom: 5px;
+		}
+
+		input {
+			margin-bottom: 10px;
+		}
+		select {
+			width: 22%;
+		    font-size: 33px;
+		    margin-bottom: 10px;
+		}
+		.noti {
+			margin-bottom: -7px;
+		}
+
 
 		.btn {
 			margin-top: 10px;

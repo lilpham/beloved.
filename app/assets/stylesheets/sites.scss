@@ -92,6 +92,20 @@ html, body,
 	.row5, .row6 {
 		height: 100%;
 		margin-top: -40px;
+		h3 {
+			font-family: 'Playfair Display', serif;
+			font-weight: 800;
+			margin-top: -500px;
+		    font-size: 54px;
+		    margin-left: 260px;
+		}
+		h2 {
+			font-family: 'Playfair Display', serif;
+		    font-weight: 800;
+		    margin-top: 98px;
+		    font-size: 54px;
+		    margin-left: 760px;
+		}
 		.col-xs-12 {
 			height: 100%;
 
@@ -99,6 +113,27 @@ html, body,
 		img {
 			width: 100%;
 			margin-left: -15px;
+		}
+		.treatq{
+			width: 44%;
+		    margin-top: -859px;
+		    margin-left: 159px;
+		}
+		.gift {
+			width: 52%;
+		    margin-top: -1071px;
+		    margin-left: 662px;
+		}
+		.callig {
+			margin-top: -1308px;
+		    width: 103%;
+		}
+	}
+	.row-icons, .row-icons2 {
+		h3 {
+			font-family: 'Playfair Display', serif;
+		    font-weight: 400;
+		    text-align: center;
 		}
 	}
 }
