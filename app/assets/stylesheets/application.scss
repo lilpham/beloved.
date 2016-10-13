@@ -145,35 +145,40 @@
     	color: #363636;
     }
     .navbar_brand, img {
-    	margin-top: -37px;
-    	margin-left: -4px;
+    	width: 34%;
+	    display: block;
+	    margin-top: -28px;
     }
     .usernav {
     	margin-top: 25px;
     }
+    .users-stuff {
+    	margin-left: -20%;
+    	margin-top: 2%;
+    	font-size: 15px;
+    }
+    .log-out {
+    	margin-left: 20%;
+    	font-size: 15px;
+    }
 }
 // Site Navbar 
 .login {
-	// margin-left: 232px;
-	position: relative;
-	text-align: right;
+	margin-left: 20%;
 
 }
 .navbar-brand-site {
 	img {
-		// font-family: Bromello, sans-serif;
-		// text-transform: lowercase;
-		// letter-spacing: 1px;
-		// font-size: 50px;
-		// margin-left: 548px;
-    	margin-top: 3px;	
-    	color: black;
-    	// position: relative;
-    	// text-align: center;
-		display: block;
-		margin: 0 auto;
+		margin-left: 70%;
+	    margin-top: 5px;
+	    width: 18%;
+	    position: relative;
+	    margin-top: -1%;	
 	}
-
+}
+.log-in {
+	margin-top: 2%;
+	font-size: 15px;
 }
 .logo {
 	color: red;
