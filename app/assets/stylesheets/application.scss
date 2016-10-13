@@ -22,13 +22,11 @@
 @import "expenses";
 @import "guests";
 @import "sites";
-// @font-face { font-family: Bromello; src: url('bromello.ttf
-// '); } 
-// @font-face { font-family: Bromello; font-weight: bold; src: url('bromello.ttf
-// ');}
 @font-face {
-    font-family: Bromello;
-    src: url(bromello.ttf);
+    font-family: 'Bromello';
+    src: url("/assets/bromello/bromello.ttf");
+    src: url("/assets/bromello/bromello.ttf.woff");
+
 }
 
 
