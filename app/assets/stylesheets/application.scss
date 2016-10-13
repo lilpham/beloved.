@@ -112,16 +112,16 @@
 }
 
 //User Navbar
-.user-navbar {
+// .user-navbar
+.navbar {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
     color: #363636;
-    margin-top: 14px;
     text-transform: uppercase;
     -webkit-box-shadow: 0 8px 6px -6px #999;
     -moz-box-shadow: 0 8px 6px -6px #999;
     width: 100%;
-    margin-left: 48px;
+    height: 12%;
     a {
     	color: #6f6e6e;
     	padding: 15px;
@@ -138,18 +138,21 @@
     	color: #363636;
     }
     .navbar_brand, img {
-    	margin-top: -35px;
-    	margin-left: -33px;
+    	margin-top: -37px;
+    	margin-left: -4px;
+    }
+    .usernav {
+    	margin-top: 25px;
     }
 }
 // Site Navbar 
 .login {
-	margin-left: 288px;
+	margin-left: 232px;
 }
 .navbar-brand-site {
 	img {
-		margin-left: 458px;
-    	margin-top: -13px;	
+		margin-left: 548px;
+    	margin-top: 5px;	
 	}
 }
 
